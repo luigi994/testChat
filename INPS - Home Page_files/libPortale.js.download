@@ -1,0 +1,164 @@
+
+function sortList(listId) {
+    // Get the ul object
+    var oUl = document.getElementById(listId);
+    /* Perform a Bubble Sort on the list items */
+    for (var i in oUl.childNodes) {
+        var x = oUl.childNodes[i];
+        for (var j in oUl.childNodes) {
+            var y = oUl.childNodes[j];
+            if ((x.innerText != 'undefined' || y.innerText != 'undefined') && x.innerText > y.innerText) {
+                // Skip if x is already the first list item
+                if (oUl.firstChild != x)
+                    oUl.insertBefore(y, x);
+            }
+        }
+    }
+
+}
+
+/* Define innerText for Mozilla based browsers */
+try {
+    if ((typeof HTMLElement != 'undefined') && (HTMLElement.prototype.__defineGetter__ != 'undefined')) {
+        HTMLElement.prototype.__defineGetter__("innerText", function () {
+            var r = this.ownerDocument.createRange();
+            r.selectNodeContents(this);
+            return r.toString();
+        });
+
+    }
+}
+catch (ex) { }
+
+
+
+function DetectFrameEraseBussola() {
+    var sPath = window.location.toString();
+    if (sPath == '') return;
+    var sPath2 = window.location.toString();
+    try { sPath2 = parent.window.location.toString(); } catch (e) { sPath2 = '' }
+    if (sPath != sPath2) {
+        var bEliminaBussola = true;
+
+        try { if (parent.window.ifrmApplicazioni.location.toString().length > 0) bEliminaBussola = false }
+        catch (e) { }
+        try { if (parent.window.frameBussola.location.toString().length > 0) bEliminaBussola = false }
+        catch (e) { }
+
+
+        if (bEliminaBussola) {
+            var objTmp;
+            objTmp = document.getElementById('objTable');
+            objTmp.style.visibility = 'hidden';
+            objTmp.deleteRow(0);
+            objTmp.deleteRow(0);
+
+        }
+    }
+}
+
+function trim(sText) {
+    return sText.replace(/^\s*|\s*$/g, '');
+}
+
+
+
+
+function SetCookie(cookieName, cookieValue, nDays) {
+    var today = new Date();
+    var expire = new Date();
+    if (nDays == null || nDays == 0) nDays = 1;
+    expire.setTime(today.getTime() + 3600000 * 24 * nDays);
+    document.cookie = cookieName + "=" + escape(cookieValue) + ";expires=" + expire.toGMTString();
+}
+
+
+function ReadCookie(cookieName) {
+    var theCookie = "" + document.cookie;
+    var ind = theCookie.indexOf(cookieName);
+    if (ind == -1 || cookieName == "") return "";
+    var ind1 = theCookie.indexOf(';', ind);
+    if (ind1 == -1) ind1 = theCookie.length;
+    return unescape(theCookie.substring(ind + cookieName.length + 1, ind1));
+}
+
+
+
+
+
+function chiamaPiwikSocial(iTipo) {
+    try {
+        var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", pkIDSITE);
+        if (iTipo == 1) {
+            piwikTracker.setCustomUrl(sPathBarDelPortaleNuova + '/icona_twitter');
+            piwikTracker.setDocumentTitle(document.title + '- click icona twitter');
+        }
+        if (iTipo == 2) {
+
+            piwikTracker.setCustomUrl(sPathBarDelPortaleNuova + '/icona_facebook');
+            piwikTracker.setDocumentTitle(document.title + '- click icona facebook');
+        }
+        if (iTipo == 3) {
+            piwikTracker.setCustomUrl(sPathBarDelPortaleNuova + '/icona_youtube');
+            piwikTracker.setDocumentTitle(document.title + '- click icona youtube');
+        }
+
+
+
+        piwikTracker.trackPageView();
+        piwikTracker.enableLinkTracking();
+    } catch (err) { }
+}
+
+function callrestlogcard(iTipo, iIDElemento) {
+  //  $.get("rest/BIlog.aspx?iTipo=" & iTipo & "&iIDElemento=" & iIDElemento, function (sData) { alert(sData) });
+
+    // Request CZ064 v.53 - INIZIO
+    // Se già letto non faccio nulla
+    if ($("#" + iIDElemento + "daLeggere").val() == "false")
+        return;
+
+    // Fix cache IE
+    $.ajaxSetup({ cache: false });
+    // Request CZ064 v.53 - FINE
+
+    $.get(
+        "rest/BIlog.aspx",
+        { iTipo: iTipo, iIDElemento: iIDElemento },
+        function (data) {
+            // alert('page content: ' + data);
+
+            // Request CZ064 v.52 - INIZIO
+            if (data != "") {
+                if (iTipo == 1)
+                    var card = $("#content-id-" + iIDElemento + " .card__information .card__identity__label");
+                else if (iTipo == 2) {
+                    var card = $("a#" + iIDElemento + " .card__information .card__identity.card__identity-- .card__identity__label");
+                    var evt = $("a#" + iIDElemento);
+                    if (evt.text().substr(evt.text().length - 1) == "*")
+                        evt.text(evt.text().substring(0, evt.text().length - 1));
+                }
+                if (card.text().substr(card.text().length - 1) == "*")
+                    card.text(card.text().substring(0, card.text().length - 1));
+
+                // Setto il valore del campo nascosto "daLeggere" a false in quanto
+                // la comunicazione è stata segnata automaticamente come letta
+                $("#" + iIDElemento + "daLeggere").val("false");
+
+                // Aggiornamento badge
+                if (data.split(',')[0] != 0)
+                    $(".navbar__node__label:contains('I tuoi avvisi')").closest("span").prev(".badge").text(data.split(',')[0]);
+                else
+                    $(".navbar__node__label:contains('I tuoi avvisi')").closest("span").prev(".badge").css("display", "none");
+                if (data.split(',')[1] != 0)
+                    $(".navbar__node__label:contains('Le tue scadenze')").closest("span").prev(".badge").text(data.split(',')[1]);
+                else
+                    $(".navbar__node__label:contains('Le tue scadenze')").closest("span").prev(".badge").css("display", "none");
+                if (data.split(',')[2] != 0)
+                    $(".navbar__node__label:contains('I tuoi messaggi')").closest("span").prev(".badge").text(data.split(',')[2]);
+                else
+                    $(".navbar__node__label:contains('I tuoi messaggi')").closest("span").prev(".badge").css("display", "none");
+            }
+            // Request CZ064 v.52 - FINE
+        });      
+}
