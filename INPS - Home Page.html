@@ -6,7 +6,8 @@
  <meta http-equiv="X-UA-Compatible" content="IE=edge">
  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
  <meta name="language" content="it">
-  
+ 
+ 
  <!-- 03/05/2019 - modificate url riferimento relativo Applicazione -->
  <link href="./INPS - Home Page_files/local-titillium.css" rel="stylesheet" type="text/css">
  <link rel="stylesheet" type="text/css" href="./INPS - Home Page_files/font-awesome.min.css">
@@ -48,6 +49,300 @@
 </a>
 <div id="liveagent_button_offline_5739E0000008Ppi" style="display: none;">
 </div>
+<script type="text/javascript">
+if (!window._laq) { window._laq = []; }
+window._laq.push(function(){liveagent.showWhenOnline('5739E0000008Ppi', document.getElementById('liveagent_button_online_5739E0000008Ppi'));
+liveagent.showWhenOffline('5739E0000008Ppi', document.getElementById('liveagent_button_offline_5739E0000008Ppi'));
+});</script>
+
+
+ <!-- Begin Default Content REMOVE THIS -->
+  <h1>Chatta con noi</h1>
+<style type='text/css'>
+	.embeddedServiceHelpButton .helpButton .uiButton {
+		background-color: #005290;
+		font-family: "Arial", sans-serif;
+    	max-width:22em;
+    	font-size:1.2em;
+	}
+	.embeddedServiceHelpButton .helpButton .uiButton:focus {
+		outline: 1px solid #005290;
+	}
+    
+    
+</style>
+
+<script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
+<script type='text/javascript'>
+	var initESW = function(gslbBaseURL) {
+		embedded_svc.settings.displayHelpButton = true; //Or false
+		embedded_svc.settings.language = 'it'; //For example, enter 'en' or 'en-US'
+		embedded_svc.settings.defaultMinimizedText = 'Chatta con un operatore'; //(Defaults to Chat with an Expert)
+		//embedded_svc.settings.disabledMinimizedText = '...'; //(Defaults to Agent Offline)
+
+		//embedded_svc.settings.loadingText = ''; //(Defaults to Loading)
+		//embedded_svc.settings.storageDomain = 'yourdomain.com'; //(Sets the domain for your deployment so that visitors can navigate subdomains during a chat session)
+
+		// Settings for Chat
+		//embedded_svc.settings.directToButtonRouting = function(prechatFormData) {
+			// Dynamically changes the button ID based on what the visitor enters in the pre-chat form.
+			// Returns a valid button ID.
+		//};
+		//embedded_svc.settings.prepopulatedPrechatFields = {}; //Sets the auto-population of pre-chat form fields
+		//embedded_svc.settings.fallbackRouting = []; //An array of button IDs, user IDs, or userId_buttonId
+		//embedded_svc.settings.offlineSupportMinimizedText = '...'; //(Defaults to Contact Us)
+
+		embedded_svc.settings.enabledFeatures = ['LiveAgent'];
+		embedded_svc.settings.entryFeature = 'LiveAgent';
+
+		embedded_svc.init(
+			'https://inps--clodevmerg.my.salesforce.com',
+			'https://clodevmerg-sogei.cs88.force.com/FatturazioneElettronica',
+			gslbBaseURL,
+			'00D9E0000004m3H',
+			'INPS_Demo',
+			{
+				baseLiveAgentContentURL: 'https://c.la2-c1cs-fra.salesforceliveagent.com/content',
+				deploymentId: '5722o000000XgTT',
+				buttonId: '5739E0000008Ppi',
+				baseLiveAgentURL: 'https://d.la2-c1cs-fra.salesforceliveagent.com/chat',
+				eswLiveAgentDevName: 'INPS_Demo',
+				isOfflineSupportEnabled: false
+			}
+		);
+        embedded_svc.settings.extraPrechatFormDetails = [
+            {
+            "label":"First Name",
+            "value" : "Franco", //@SOGEI -> Inserire Variabile contenente il Nome dell'utente
+            "displayToAgent": true
+            },
+            {
+            "label":"Last Name",
+            "value" : "Russo",  //@SOGEI -> Inserire Variabile contenente il Cognome dell'utente
+            "displayToAgent": true
+            },
+            {
+            "label": "RecordTypeId",
+            "value": "",
+            "displayToAgent": true
+            },
+            {
+            "label": "Telefono",
+            "displayToAgent": true
+            },
+            {
+            "label": "Email",
+            "displayToAgent": true
+            },
+            {
+            "label": "Fiscal Code",
+            "value": "RSSFNC80A01F839D",    //@SOGEI -> Inserire Variabile contenente il CF dell'utente
+            "displayToAgent": true  
+            },
+            {
+            "label": "CaseStatus",
+            "value": "Open",
+            "displayToAgent": false 
+            },
+            {
+            "label": "CaseOrigin",
+            "value": "Chat",
+            "displayToAgent": false 
+            },
+            {
+            "label": "CaseRespChannel",
+            "value": "Live Chat",
+            "displayToAgent": false 
+            },
+            {
+            "label": "TaskType",
+            "value": "Live Chat",
+            "displayToAgent": false 
+            },
+            {
+            "label": "TaskSubject",
+            "value": "Live Chat",
+            "displayToAgent": false 
+            }
+        ];
+		
+        embedded_svc.settings.extraPrechatInfo = [
+            
+            //PERSON ACCOUNT
+            {
+                "entityName": "Account",
+                "linkToEntityName": "Case",
+                "linkToEntityField": "ContactId",
+                "saveToTranscript": "AccountId",
+                "entityFieldMaps":[
+                    {
+                        "doCreate": true,
+                        "doFind": false,
+                        "fieldName": "RecordTypeId",
+                        "isExactMatch": false,
+                        "label": "RecordTypeId"
+                    },
+                    {
+                        "isExactMatch":false,
+                        "fieldName":"FirstName",
+                        "doCreate":true,
+                        "doFind":false,
+                        "label":"First Name"
+                    },
+                    {
+                        "isExactMatch":false,
+                        "fieldName":"Phone",
+                        "doCreate":true,
+                        "doFind":false,
+                        "label":"Telefono"
+                    },
+                    {
+                        "isExactMatch":false,
+                        "fieldName":"PersonEmail",
+                        "doCreate":true,
+                        "doFind":false,
+                        "label":"Email"
+                    },
+                    {
+                        "isExactMatch":false,
+                        "fieldName":"LastName",
+                        "doCreate":true,
+                        "doFind":false,
+                        "label":"Last Name"
+                    },
+                    {
+                        "isExactMatch":true,
+                        "fieldName":"Fiscal_Code__pc",
+                        "doCreate":true,
+                        "doFind":true,
+                        "label":"Fiscal Code"   
+                    }
+                ]
+            },
+            
+            //CONTACT
+            {
+                "entityName": "Contact",
+                "saveToTranscript": "ContactId",
+                "entityFieldMaps": [
+                    {
+                        "isExactMatch":true,
+                        "fieldName":"Fiscal_Code__c",
+                        "doCreate":true,
+                        "doFind":true,
+                        "label":"Codice Fiscale"    
+                    },
+                    {
+                        "isExactMatch":false,
+                        "fieldName":"LastName",
+                        "doCreate":false,
+                        "doFind":false,
+                        "label":"Cognome"
+                    },
+                    {
+                        "isExactMatch":false,
+                        "fieldName":"FirstName",
+                        "doCreate":false,
+                        "doFind":false,
+                        "label":"Nome"
+                    },
+                    {
+                        "isExactMatch":false,
+                        "fieldName":"Email",
+                        "doCreate":false,
+                        "doFind":false,
+                        "label":"Email"
+                    },
+                    {
+                        "isExactMatch":false,
+                        "fieldName":"Phone",
+                        "doCreate":false,
+                        "doFind":false,
+                        "label":"Telefono"
+                    }
+                ]
+            },
+            
+            //CASE
+            {
+                "entityName": "Case",
+                "saveToTranscript": "CaseId",
+                "linkToEntityName": "Task",
+                "linkToEntityField": "WhatId",
+                "entityFieldMaps": [
+                    {
+                        "isExactMatch":false,
+                        "fieldName":"Status",
+                        "doCreate":true,
+                        "doFind":false,
+                        "label":"CaseStatus"    
+                    },
+                    {
+                        "isExactMatch":false,
+                        "fieldName":"Origin",
+                        "doCreate":true,
+                        "doFind":false,
+                        "label":"CaseOrigin"    
+                    },
+                    {
+                        "isExactMatch":false,
+                        "fieldName":"Response_Channel__c",
+                        "doCreate":true,
+                        "doFind":false,
+                        "label":"CaseRespChannel"   
+                    }
+                ]
+            }, 
+                
+            //Task
+            {
+                "entityName": "Task",
+                "saveToTranscript": "AE_Technical_Task_Id__c",
+                "entityFieldMaps": [
+                    {
+                        "isExactMatch":false,
+                        "fieldName":"Type",
+                        "doCreate":true,
+                        "doFind":false,
+                        "label":"TaskType"  
+                    },
+                    {
+                        "isExactMatch":false,
+                        "fieldName":"Subject",
+                        "doCreate":true,
+                        "doFind":false,
+                        "label":"TaskSubject"  
+                    }
+                    
+                ]
+            }
+            
+            
+        ];
+
+            embedded_svc.settings.prepopulatedPrechatFields = {
+            FirstName: "Franco",                        //@SOGEI -> Inserire Variabile contenente il Nome dell'utente
+            LastName: "Russo",                          //@SOGEI -> Inserire Variabile contenente il Cognome dell'utente
+            Fiscal_Code__c: "RSSFNC80A01F839D",         //@SOGEI -> Inserire Variabile contenente il CF dell'utente
+            Phone: "081656565",                         //@SOGEI -> Inserire Variabile contenente il Phone dell'utente
+            Email: "fra@libero.it"                      //@SOGEI -> Inserire Variabile contenente l email dell'utente
+        };
+
+       
+        
+	};
+
+	if (!window.embedded_svc) {
+		var s = document.createElement('script');
+		s.setAttribute('src', 'https://inps--clodevmerg.my.salesforce.com/embeddedservice/5.0/esw.min.js');
+		s.onload = function() {
+			initESW(null);
+		};
+		document.body.appendChild(s);
+	} else {
+		initESW('https://service.force.com');
+	}
+</script>
 <!--LRUSSO-->
  <div class="modal-dialog modal-lg">
  <div class="modal-content">
@@ -92,32 +387,6 @@ Per vedere quali cookie utilizziamo <a title="leggi l&#39;informativa" href="htt
  </div>
  </div>
  <!-- Cookie advisor -->
- <script type="text/javascript">
- $(document).ready(function () {
- var bNascondiDivCookie = leggiCookie("nascondiDivCookie");
- var bDisattivaDivCookie = 'true';
- if (bNascondiDivCookie != 'true' && bDisattivaDivCookie == 'true') {
- $("#cookie_directive_container").appendTo("#cookie_directive");
- $('#cookie_directive_container').show();
-
- var distance = $(window).scrollTop();
- $(window).scroll(function () {
- if ($(this).scrollTop() != distance) {
- $('#cookie_directive_container').hide();
- }
- });
- }
- });
- $("#cookie_accept").click(function () {
- $('#cookie_directive_container').hide();
- scriviCookie("nascondiDivCookie", "true", 7200)
- });
- $("#cookie_directive_container .close").click(function () {
- $('#cookie_directive_container').hide();
- scriviCookie("nascondiDivCookie", "true", 7200)
- });
-
- </script>
  <!-- Fine Cookie advisor -->
  <nav role="navigation" id="header-navbar" class="navbar navbar-inverse navbar-global HM_navbg" style="height: auto">
  <div class="container HM_alignTop" style="padding-left: 0;">
@@ -672,307 +941,1668 @@ Per vedere quali cookie utilizziamo <a title="leggi l&#39;informativa" href="htt
  </div>
  </div>
 
- <script src="./INPS - Home Page_files/ricerca.js.download" type="text/javascript"></script>
  <!--</div>
 
  </div>-->
  <!-- /container -->
  <!-- Bootstrap core JavaScript
  ================================================== -->
- <script src="./INPS - Home Page_files/jquery.joyride-2.1.js.download"></script>
  <!--UPDATE TEMPALE 2020-07-28-->
 
 
-<!--LRUSSO-->
+<section class="home__evidence-section background-primary--90 home__evidence-section-hide-swipe" role="banner" id="InEvidenzaLayout">
+<div class="container">
+<div class="row">
+ <div class="col-xs-12 col-sm-12 col-md-12 col-lg-9 evidence-section__main" id="helpInEvidenza">
+ <div class="card-showcase card-showcase--standard card-showcase--standard--lg-4xs">
+ <h2 class="card-showcase__heading">In evidenza</h2> 
+ <div class="card-showcase__body swiper-container row js-swi-check-belowlg-play" accesskey="I"><div class="swiper-wrapper HM_adjustSlider"><div id="divInEvidence" class="swiper-slide col-md-8 lg-4xs__lg">
+	<article class="card card--xs--format-sm card--md--format-lg card--lg--format-lg card-no-hide-media">
+		<a href="https://www.inps.it/nuovoportaleinps/default.aspx?itemdir=54310" class="card__link">
+			<div class="card__media">                      <img class="media-object" src="./INPS - Home Page_files/prestazioni-covid-05.jpg" alt="Covid-19: accesso diretto a tutti i servizi dell’INPS">                    </div>
+			<div class="card__information">
+				<div class="thumb-image">                        <img src="./INPS - Home Page_files/prestazioni-covid-05.jpg" alt="">                      </div>
+				<div class="card__identity ">                        <span class="card__identity__icon">                          <em class="fa fa-newspaper-o">                          </em>                        </span>                        <span class="card__identity__label">Notizia</span>                        <span class="card__identity__date">20/10/2020</span>                      </div>
+				<header class="card__header">
+					<h2 class="card__heading" title="Covid-19: accesso diretto a tutti i servizi dell’INPS">Covid-19: accesso diretto a tutti i servizi dell’INPS</h2>
+				</header>
+				<div class="card__content"></div>
+			</div>
+		</a>
+		<div class="card__metadata">
+			<div class="people-activity-meta">
+<div class="mediaShare" id="cuoricino4" style="display:none"><div class="mediaContent" style="font-size:13px;text-align:left"> 
+ <a href="Javascript:goLoginPassi(&#39;https://serviziweb2.inps.it/PassiWeb/jsp/login.jsp&#39;);" style="font-size:13px;color:white;text-decoration:underline"> Registrati al MyINPS</a><br>   per aggiungere questo contenuto all'elenco dei tuoi interessi.  
+</div><div class="arrowDown two" style="margin-left: 10%"></div></div> 
+
+<div id="shareInEvidenza0" class="mediaShare" style="display:none">
+	<div class="mediaContent">Condividi questo contenuto:
+        <div class="share-buttons">
+            <a href="https://www.inps.it/nuovoportaleinps/default.aspx#" title="share facebook" onclick="ShareSocialNetwork(&#39;facebook&#39;, &#39;//www.inps.it/nuovoportaleinps/default.aspx?itemdir=54310&amp;tipologia=news&amp;idunivoco=54310&#39;); return false;"><strong class="fa fa-facebook-official "></strong></a>
+			<a href="https://www.inps.it/nuovoportaleinps/default.aspx#" title="share twitter" onclick="ShareSocialNetwork(&#39;twitter&#39;, &#39;//www.inps.it/nuovoportaleinps/default.aspx?itemdir=54310&amp;tipologia=news&amp;idunivoco=54310&#39;); return false;"><strong class="fa fa-twitter"></strong></a>
+			<a href="https://www.inps.it/nuovoportaleinps/default.aspx#" title="share linkedin" onclick="ShareSocialNetwork(&#39;linkedin&#39;, &#39;//www.inps.it/nuovoportaleinps/default.aspx?itemdir=54310&amp;tipologia=news&amp;idunivoco=54310&#39;); return false;"><strong class="fa fa-linkedin-square"></strong></a>
+        </div>
+    </div>
+    <div class="arrowDown two"></div>
+</div>
+
+				<ul>
+                 <li class="favorites"><a style="cursor:pointer;" href="javascript:void(0);" onclick="ShowdivShare(&#39;cuoricino4&#39;)"><em class="icon icon__heart"></em>744 </a></li>
+<li class="share"><a style="cursor:pointer;" title="Condivisioni degli ultimi 3 mesi" href="javascript: Void(0);" onclick="ShowdivShare(&#39;shareInEvidenza0&#39;)"><em class="icon icon__share"></em>48</a></li>
+				</ul>
+			</div>
+		</div>
+	</article>
+</div>
+<div class="swiper-slide lg-4xs__4xs">
+	<article class="card card--xs--format-sm card--md--format-xs card--lg--format-xs">
+		<a href="https://www.inps.it/nuovoportaleinps/default.aspx?itemdir=54571" class="card__link">
+			<div class="card__media" style="">            <img class="media-object large-image" src="./INPS - Home Page_files/AdobeStock_99428698.jpg" alt="Mutui ipotecari: modalità di pagamento della rata di dicembre 2020">         </div>
+			<div class="card__information">
+				<div class="card__identity ">                 <span class="card__identity__icon">                     <em class="fa fa-newspaper-o"></em>                 </span>                 <span class="card__identity__label">Notizia</span>                 <span class="card__identity__date">10/12/2020</span>             </div>
+				<header class="card__header">
+					<h2 class="card__heading" title="Mutui ipotecari: modalità di pagamento della rata di dicembre 2020">Mutui ipotecari: modalità di pagamento della rata di dicembre 2020</h2>
+				</header>
+				<div class="card__content"></div>
+			</div>
+		</a>
+		<div class="card__metadata">
+			<div class="people-activity-meta">
+<div class="mediaShare" id="cuoricino5" style="display:none"><div class="mediaContent" style="font-size:13px;text-align:left"> 
+ <a href="Javascript:goLoginPassi(&#39;https://serviziweb2.inps.it/PassiWeb/jsp/login.jsp&#39;);" style="font-size:13px;color:white;text-decoration:underline"> Registrati al MyINPS</a><br>   per aggiungere questo contenuto all'elenco dei tuoi interessi.  
+</div><div class="arrowDown two" style="margin-left: 10%"></div></div> 
+
+<div id="shareInEvidenza1" class="mediaShare" style="display:none">
+	<div class="mediaContent">Condividi questo contenuto:
+        <div class="share-buttons">
+            <a href="https://www.inps.it/nuovoportaleinps/default.aspx#" title="share facebook" onclick="ShareSocialNetwork(&#39;facebook&#39;, &#39;//www.inps.it/nuovoportaleinps/default.aspx?itemdir=54571&amp;tipologia=news&amp;idunivoco=54571&#39;); return false;"><strong class="fa fa-facebook-official "></strong></a>
+			<a href="https://www.inps.it/nuovoportaleinps/default.aspx#" title="share twitter" onclick="ShareSocialNetwork(&#39;twitter&#39;, &#39;//www.inps.it/nuovoportaleinps/default.aspx?itemdir=54571&amp;tipologia=news&amp;idunivoco=54571&#39;); return false;"><strong class="fa fa-twitter"></strong></a>
+			<a href="https://www.inps.it/nuovoportaleinps/default.aspx#" title="share linkedin" onclick="ShareSocialNetwork(&#39;linkedin&#39;, &#39;//www.inps.it/nuovoportaleinps/default.aspx?itemdir=54571&amp;tipologia=news&amp;idunivoco=54571&#39;); return false;"><strong class="fa fa-linkedin-square"></strong></a>
+        </div>
+    </div>
+    <div class="arrowDown two"></div>
+</div>
+
+				<ul>
+                 <li class="favorites"><a style="cursor:pointer;" href="javascript:void(0);" onclick="ShowdivShare(&#39;cuoricino5&#39;)"><em class="icon icon__heart"></em>7 </a></li>
+<li class="share"><a style="cursor:pointer;" title="Condivisioni degli ultimi 3 mesi" href="javascript: Void(0);" onclick="ShowdivShare(&#39;shareInEvidenza1&#39;)"><em class="icon icon__share"></em>7</a></li>
+				</ul>
+			</div>
+		</div>
+	</article>
+</div>
+<div class="swiper-slide lg-4xs__4xs">
+	<article class="card card--xs--format-sm card--md--format-xs card--lg--format-xs">
+		<a href="https://www.inps.it/nuovoportaleinps/default.aspx?itemdir=54565" class="card__link">
+			<div class="card__media" style="">            <img class="media-object large-image" src="./INPS - Home Page_files/Visual_istituzionale2.jpg" alt="CIG: i dati INPS aggiornati al 3 dicembre 2020">         </div>
+			<div class="card__information">
+				<div class="card__identity ">                 <span class="card__identity__icon">                     <em class="fa fa-newspaper-o"></em>                 </span>                 <span class="card__identity__label">Notizia</span>                 <span class="card__identity__date">07/12/2020</span>             </div>
+				<header class="card__header">
+					<h2 class="card__heading" title="CIG: i dati INPS aggiornati al 3 dicembre 2020">CIG: i dati INPS aggiornati al 3 dicembre 2020</h2>
+				</header>
+				<div class="card__content"></div>
+			</div>
+		</a>
+		<div class="card__metadata">
+			<div class="people-activity-meta">
+<div class="mediaShare" id="cuoricino6" style="display:none"><div class="mediaContent" style="font-size:13px;text-align:left"> 
+ <a href="Javascript:goLoginPassi(&#39;https://serviziweb2.inps.it/PassiWeb/jsp/login.jsp&#39;);" style="font-size:13px;color:white;text-decoration:underline"> Registrati al MyINPS</a><br>   per aggiungere questo contenuto all'elenco dei tuoi interessi.  
+</div><div class="arrowDown two" style="margin-left: 10%"></div></div> 
+
+<div id="shareInEvidenza2" class="mediaShare" style="display:none">
+	<div class="mediaContent">Condividi questo contenuto:
+        <div class="share-buttons">
+            <a href="https://www.inps.it/nuovoportaleinps/default.aspx#" title="share facebook" onclick="ShareSocialNetwork(&#39;facebook&#39;, &#39;//www.inps.it/nuovoportaleinps/default.aspx?itemdir=54565&amp;tipologia=news&amp;idunivoco=54565&#39;); return false;"><strong class="fa fa-facebook-official "></strong></a>
+			<a href="https://www.inps.it/nuovoportaleinps/default.aspx#" title="share twitter" onclick="ShareSocialNetwork(&#39;twitter&#39;, &#39;//www.inps.it/nuovoportaleinps/default.aspx?itemdir=54565&amp;tipologia=news&amp;idunivoco=54565&#39;); return false;"><strong class="fa fa-twitter"></strong></a>
+			<a href="https://www.inps.it/nuovoportaleinps/default.aspx#" title="share linkedin" onclick="ShareSocialNetwork(&#39;linkedin&#39;, &#39;//www.inps.it/nuovoportaleinps/default.aspx?itemdir=54565&amp;tipologia=news&amp;idunivoco=54565&#39;); return false;"><strong class="fa fa-linkedin-square"></strong></a>
+        </div>
+    </div>
+    <div class="arrowDown two"></div>
+</div>
+
+				<ul>
+                 <li class="favorites"><a style="cursor:pointer;" href="javascript:void(0);" onclick="ShowdivShare(&#39;cuoricino6&#39;)"><em class="icon icon__heart"></em>38 </a></li>
+<li class="share"><a style="cursor:pointer;" title="Condivisioni degli ultimi 3 mesi" href="javascript: Void(0);" onclick="ShowdivShare(&#39;shareInEvidenza2&#39;)"><em class="icon icon__share"></em>3</a></li>
+				</ul>
+			</div>
+		</div>
+	</article>
+</div>
+<div class="swiper-slide lg-4xs__4xs">
+	<article class="card card--xs--format-sm card--md--format-xs card--lg--format-xs">
+		<a href="https://www.inps.it/nuovoportaleinps/default.aspx?itemdir=54550" class="card__link">
+			<div class="card__media" style="">            <img class="media-object large-image" src="./INPS - Home Page_files/AdobeStock_184031807_preview.jpg" alt="Cumulo pensione e redditi lavoro autonomo: nuovi termini dichiarazione">         </div>
+			<div class="card__information">
+				<div class="card__identity ">                 <span class="card__identity__icon">                     <em class="fa fa-newspaper-o"></em>                 </span>                 <span class="card__identity__label">Notizia</span>                 <span class="card__identity__date">07/12/2020</span>             </div>
+				<header class="card__header">
+					<h2 class="card__heading" title="Cumulo pensione e redditi lavoro autonomo: nuovi termini dichiarazione">Cumulo pensione e redditi lavoro autonomo: nuovi termini dichiarazione</h2>
+				</header>
+				<div class="card__content"></div>
+			</div>
+		</a>
+		<div class="card__metadata">
+			<div class="people-activity-meta">
+<div class="mediaShare" id="cuoricino7" style="display:none"><div class="mediaContent" style="font-size:13px;text-align:left"> 
+ <a href="Javascript:goLoginPassi(&#39;https://serviziweb2.inps.it/PassiWeb/jsp/login.jsp&#39;);" style="font-size:13px;color:white;text-decoration:underline"> Registrati al MyINPS</a><br>   per aggiungere questo contenuto all'elenco dei tuoi interessi.  
+</div><div class="arrowDown two" style="margin-left: 10%"></div></div> 
+
+<div id="shareInEvidenza3" class="mediaShare" style="display:none">
+	<div class="mediaContent">Condividi questo contenuto:
+        <div class="share-buttons">
+            <a href="https://www.inps.it/nuovoportaleinps/default.aspx#" title="share facebook" onclick="ShareSocialNetwork(&#39;facebook&#39;, &#39;//www.inps.it/nuovoportaleinps/default.aspx?itemdir=54550&amp;tipologia=news&amp;idunivoco=54550&#39;); return false;"><strong class="fa fa-facebook-official "></strong></a>
+			<a href="https://www.inps.it/nuovoportaleinps/default.aspx#" title="share twitter" onclick="ShareSocialNetwork(&#39;twitter&#39;, &#39;//www.inps.it/nuovoportaleinps/default.aspx?itemdir=54550&amp;tipologia=news&amp;idunivoco=54550&#39;); return false;"><strong class="fa fa-twitter"></strong></a>
+			<a href="https://www.inps.it/nuovoportaleinps/default.aspx#" title="share linkedin" onclick="ShareSocialNetwork(&#39;linkedin&#39;, &#39;//www.inps.it/nuovoportaleinps/default.aspx?itemdir=54550&amp;tipologia=news&amp;idunivoco=54550&#39;); return false;"><strong class="fa fa-linkedin-square"></strong></a>
+        </div>
+    </div>
+    <div class="arrowDown two"></div>
+</div>
+
+				<ul>
+                 <li class="favorites"><a style="cursor:pointer;" href="javascript:void(0);" onclick="ShowdivShare(&#39;cuoricino7&#39;)"><em class="icon icon__heart"></em>4 </a></li>
+<li class="share"><a style="cursor:pointer;" title="Condivisioni degli ultimi 3 mesi" href="javascript: Void(0);" onclick="ShowdivShare(&#39;shareInEvidenza3&#39;)"><em class="icon icon__share"></em>0</a></li>
+				</ul>
+			</div>
+		</div>
+	</article>
+</div>
+<div class="swiper-slide lg-4xs__4xs">
+	<article class="card card--xs--format-sm card--md--format-xs card--lg--format-xs">
+		<a href="https://www.inps.it/nuovoportaleinps/default.aspx?itemdir=54521" class="card__link">
+			<div class="card__media" style="">            <img class="media-object large-image" src="./INPS - Home Page_files/AdobeStock_18473851.jpg" alt="Indennità Covid-19 una tantum: termini di presentazione delle domande">         </div>
+			<div class="card__information">
+				<div class="card__identity ">                 <span class="card__identity__icon">                     <em class="fa fa-newspaper-o"></em>                 </span>                 <span class="card__identity__label">Notizia</span>                 <span class="card__identity__date">07/12/2020</span>             </div>
+				<header class="card__header">
+					<h2 class="card__heading" title="Indennità Covid-19 una tantum: termini di presentazione delle domande">Indennità Covid-19 una tantum: termini di presentazione delle domande</h2>
+				</header>
+				<div class="card__content"></div>
+			</div>
+		</a>
+		<div class="card__metadata">
+			<div class="people-activity-meta">
+<div class="mediaShare" id="cuoricino8" style="display:none"><div class="mediaContent" style="font-size:13px;text-align:left"> 
+ <a href="Javascript:goLoginPassi(&#39;https://serviziweb2.inps.it/PassiWeb/jsp/login.jsp&#39;);" style="font-size:13px;color:white;text-decoration:underline"> Registrati al MyINPS</a><br>   per aggiungere questo contenuto all'elenco dei tuoi interessi.  
+</div><div class="arrowDown two" style="margin-left: 10%"></div></div> 
+
+<div id="shareInEvidenza4" class="mediaShare" style="display:none">
+	<div class="mediaContent">Condividi questo contenuto:
+        <div class="share-buttons">
+            <a href="https://www.inps.it/nuovoportaleinps/default.aspx#" title="share facebook" onclick="ShareSocialNetwork(&#39;facebook&#39;, &#39;//www.inps.it/nuovoportaleinps/default.aspx?itemdir=54521&amp;tipologia=news&amp;idunivoco=54521&#39;); return false;"><strong class="fa fa-facebook-official "></strong></a>
+			<a href="https://www.inps.it/nuovoportaleinps/default.aspx#" title="share twitter" onclick="ShareSocialNetwork(&#39;twitter&#39;, &#39;//www.inps.it/nuovoportaleinps/default.aspx?itemdir=54521&amp;tipologia=news&amp;idunivoco=54521&#39;); return false;"><strong class="fa fa-twitter"></strong></a>
+			<a href="https://www.inps.it/nuovoportaleinps/default.aspx#" title="share linkedin" onclick="ShareSocialNetwork(&#39;linkedin&#39;, &#39;//www.inps.it/nuovoportaleinps/default.aspx?itemdir=54521&amp;tipologia=news&amp;idunivoco=54521&#39;); return false;"><strong class="fa fa-linkedin-square"></strong></a>
+        </div>
+    </div>
+    <div class="arrowDown two"></div>
+</div>
+
+				<ul>
+                 <li class="favorites"><a style="cursor:pointer;" href="javascript:void(0);" onclick="ShowdivShare(&#39;cuoricino8&#39;)"><em class="icon icon__heart"></em>87 </a></li>
+<li class="share"><a style="cursor:pointer;" title="Condivisioni degli ultimi 3 mesi" href="javascript: Void(0);" onclick="ShowdivShare(&#39;shareInEvidenza4&#39;)"><em class="icon icon__share"></em>10</a></li>
+				</ul>
+			</div>
+		</div>
+	</article>
+</div>
+</div><div class="swiper-button-prev card-showcase__nav-prev visible-xs hidden-md"></div><div class="swiper-button-next card-showcase__nav-next visible-xs hidden-md"></div><div class="card-showcase__navigation col-xs-6"></div></div> 
+ </div>
+ </div>
+ <div class="col-xs-12 col-sm-12 col-md-12 col-lg-3 background-primary evidence-section__aside home-tabs" id="CategorieUtenzaLayout1">    <div class="labels active">		<div id="utenti-selector" class="single-label utenti active" data-child="utenti-container"><a href="javascript:void(0);" title="Mostra Categorie di utenza">Utenti</a></div>		<div id="temi-selector" class="single-label temi" data-child="temi-container"><a href="javascript:void(0);" title="Mostra Temi">Temi</a></div>    </div>    <div id="utenti-container" class="home-tabs-container active">    	<div id="utenti-lista-1" class="parent list-wrapper active" style=""><ul>
+<li class="semantic-user semantic-user--semantic-user--negative">
+    <a href="https://www.inps.it/nuovoportaleinps/default.aspx?iprestazioni=100&amp;iTipoUtente=7581" title="Vai a Famiglia" class="link-node">
+    <span class="semantic-user__icon link-node__icon">
+        <span class="semantic-user__icon__img semantic-user__icon__img--neg icon__--neg" style="background:url(/docallegatiNP/Mig/Icons/icon__utenti-famiglie--neg.png) no-repeat scroll center; background-size:80%;background-color:#007db3"></span>
+        <span class="semantic-user__icon__img semantic-user__icon__img--pos icon__--pos" style="background:url(/docallegatiNP/Mig/Icons/icon__utenti-famiglie.png) no-repeat scroll center; background-size:80%"></span>
+    </span>
+    <span class="semantic-user__label link-node__label">Famiglia</span>
+    </a>
+</li>
+<li class="semantic-user semantic-user--semantic-user--negative">
+    <a href="https://www.inps.it/nuovoportaleinps/default.aspx?iprestazioni=100&amp;iTipoUtente=7579" title="Vai a Pensionati" class="link-node">
+    <span class="semantic-user__icon link-node__icon">
+        <span class="semantic-user__icon__img semantic-user__icon__img--neg icon__--neg" style="background:url(/docallegatiNP/Mig/Icons/icon__utenti-pensionati--neg.png) no-repeat scroll center; background-size:80%;background-color:#007db3"></span>
+        <span class="semantic-user__icon__img semantic-user__icon__img--pos icon__--pos" style="background:url(/docallegatiNP/Mig/Icons/icon__utenti-pensionati.png) no-repeat scroll center; background-size:80%"></span>
+    </span>
+    <span class="semantic-user__label link-node__label">Pensionati</span>
+    </a>
+</li>
+<li class="semantic-user semantic-user--semantic-user--negative">
+    <a href="https://www.inps.it/nuovoportaleinps/default.aspx?iprestazioni=100&amp;iTipoUtente=7583" title="Vai a Disoccupati, inoccupati e lavoratori sospesi" class="link-node">
+    <span class="semantic-user__icon link-node__icon">
+        <span class="semantic-user__icon__img semantic-user__icon__img--neg icon__--neg" style="background:url(/docallegatiNP/Mig/Icons/icon__utenti-disoccupati--neg.png) no-repeat scroll center; background-size:80%;background-color:#007db3"></span>
+        <span class="semantic-user__icon__img semantic-user__icon__img--pos icon__--pos" style="background:url(/docallegatiNP/Mig/Icons/icon__utenti-disoccupati.png) no-repeat scroll center; background-size:80%"></span>
+    </span>
+    <span class="semantic-user__label link-node__label">Disoccupati, inoccupati e lavoratori sospesi</span>
+    </a>
+</li>
+<li class="semantic-user semantic-user--semantic-user--negative">
+    <a href="https://www.inps.it/nuovoportaleinps/default.aspx?iprestazioni=100&amp;iTipoUtente=7580" title="Vai a Persone con disabilità e invalidità" class="link-node">
+    <span class="semantic-user__icon link-node__icon">
+        <span class="semantic-user__icon__img semantic-user__icon__img--neg icon__--neg" style="background:url(/docallegatiNP/Mig/Icons/icon__utenti-disabili--neg.png) no-repeat scroll center; background-size:80%;background-color:#007db3"></span>
+        <span class="semantic-user__icon__img semantic-user__icon__img--pos icon__--pos" style="background:url(/docallegatiNP/Mig/Icons/icon__utenti-disabili.png) no-repeat scroll center; background-size:80%"></span>
+    </span>
+    <span class="semantic-user__label link-node__label">Persone con disabilità e invalidità</span>
+    </a>
+</li>
+<li class="semantic-user semantic-user--semantic-user--negative">
+    <a href="https://www.inps.it/nuovoportaleinps/default.aspx?iprestazioni=100&amp;iTipoUtente=7582" title="Vai a Lavoratori" class="link-node">
+    <span class="semantic-user__icon link-node__icon">
+        <span class="semantic-user__icon__img semantic-user__icon__img--neg icon__--neg" style="background:url(/docallegatiNP/Mig/Icons/icon__utenti-lavoratori--neg.png) no-repeat scroll center; background-size:80%;background-color:#007db3"></span>
+        <span class="semantic-user__icon__img semantic-user__icon__img--pos icon__--pos" style="background:url(/docallegatiNP/Mig/Icons/icon__utenti-lavoratori.png) no-repeat scroll center; background-size:80%"></span>
+    </span>
+    <span class="semantic-user__label link-node__label">Lavoratori</span>
+    </a>
+</li>
+<li class="semantic-user semantic-user--semantic-user--negative">
+    <a href="https://www.inps.it/nuovoportaleinps/default.aspx?iprestazioni=100&amp;iTipoUtente=7584" title="Vai a Lavoratori migranti" class="link-node">
+    <span class="semantic-user__icon link-node__icon">
+        <span class="semantic-user__icon__img semantic-user__icon__img--neg icon__--neg" style="background:url(/docallegatiNP/Mig/Icons/icon__utenti-migranti--neg.png) no-repeat scroll center; background-size:80%;background-color:#007db3"></span>
+        <span class="semantic-user__icon__img semantic-user__icon__img--pos icon__--pos" style="background:url(/docallegatiNP/Mig/Icons/icon__utenti-migranti.png) no-repeat scroll center; background-size:80%"></span>
+    </span>
+    <span class="semantic-user__label link-node__label">Lavoratori migranti</span>
+    </a>
+</li>
+<li class="semantic-user semantic-user--semantic-user--negative">
+    <a href="https://www.inps.it/nuovoportaleinps/default.aspx?iprestazioni=100&amp;iTipoUtente=7558" title="Vai a Aziende, enti e datori di lavoro" class="link-node">
+    <span class="semantic-user__icon link-node__icon">
+        <span class="semantic-user__icon__img semantic-user__icon__img--neg icon__--neg" style="background:url(/docallegatiNP/Mig/Icons/icon__utenti-aziende--neg.png) no-repeat scroll center; background-size:80%;background-color:#007db3"></span>
+        <span class="semantic-user__icon__img semantic-user__icon__img--pos icon__--pos" style="background:url(/docallegatiNP/Mig/Icons/icon__utenti-aziende.png) no-repeat scroll center; background-size:80%"></span>
+    </span>
+    <span class="semantic-user__label link-node__label">Aziende, enti e datori di lavoro</span>
+    </a>
+</li>
+<li class="semantic-user semantic-user--semantic-user--negative">
+    <a href="https://www.inps.it/nuovoportaleinps/default.aspx?iprestazioni=100&amp;iTipoUtente=7561" title="Vai a Enti erogatori di prestazioni previdenziali, consolati e altre autorità locali" class="link-node">
+    <span class="semantic-user__icon link-node__icon">
+        <span class="semantic-user__icon__img semantic-user__icon__img--neg icon__--neg" style="background:url(/docallegatiNP/Mig/Icons/icon__utenti-previdenza--neg.png) no-repeat scroll center; background-size:80%;background-color:#007db3"></span>
+        <span class="semantic-user__icon__img semantic-user__icon__img--pos icon__--pos" style="background:url(/docallegatiNP/Mig/Icons/icon__utenti-previdenza.png) no-repeat scroll center; background-size:80%"></span>
+    </span>
+    <span class="semantic-user__label link-node__label">Enti erogatori di prestazioni previdenziali, consolati e altre autorità locali</span>
+    </a>
+</li>
+<li class="semantic-user semantic-user--semantic-user--negative">
+    <a href="https://www.inps.it/nuovoportaleinps/default.aspx?iprestazioni=100&amp;iTipoUtente=7560" title="Vai a Banche e intermediari finanziari" class="link-node">
+    <span class="semantic-user__icon link-node__icon">
+        <span class="semantic-user__icon__img semantic-user__icon__img--neg icon__--neg" style="background:url(/docallegatiNP/Mig/Icons/icon__utenti-credito--neg.png) no-repeat scroll center; background-size:80%;background-color:#007db3"></span>
+        <span class="semantic-user__icon__img semantic-user__icon__img--pos icon__--pos" style="background:url(/docallegatiNP/Mig/Icons/icon__utenti-credito.png) no-repeat scroll center; background-size:80%"></span>
+    </span>
+    <span class="semantic-user__label link-node__label">Banche e intermediari finanziari</span>
+    </a>
+</li>
+<li class="semantic-user semantic-user--semantic-user--negative">
+    <a href="https://www.inps.it/nuovoportaleinps/default.aspx?iprestazioni=100&amp;iTipoUtente=7562" title="Vai a Intermediari e consulenti" class="link-node">
+    <span class="semantic-user__icon link-node__icon">
+        <span class="semantic-user__icon__img semantic-user__icon__img--neg icon__--neg" style="background:url(/docallegatiNP/Mig/Icons/icon__utenti-consulenti--neg.png) no-repeat scroll center; background-size:80%;background-color:#007db3"></span>
+        <span class="semantic-user__icon__img semantic-user__icon__img--pos icon__--pos" style="background:url(/docallegatiNP/Mig/Icons/icon__utenti-consulenti.png) no-repeat scroll center; background-size:80%"></span>
+    </span>
+    <span class="semantic-user__label link-node__label">Intermediari e consulenti</span>
+    </a>
+</li>
+<li class="semantic-user semantic-user--semantic-user--negative">
+    <a href="https://www.inps.it/nuovoportaleinps/default.aspx?iprestazioni=100&amp;iTipoUtente=7563" title="Vai a Medici e ASL" class="link-node">
+    <span class="semantic-user__icon link-node__icon">
+        <span class="semantic-user__icon__img semantic-user__icon__img--neg icon__--neg" style="background:url(/docallegatiNP/Mig/Icons/icon__utenti-medici--neg.png) no-repeat scroll center; background-size:80%;background-color:#007db3"></span>
+        <span class="semantic-user__icon__img semantic-user__icon__img--pos icon__--pos" style="background:url(/docallegatiNP/Mig/Icons/icon__utenti-medici.png) no-repeat scroll center; background-size:80%"></span>
+    </span>
+    <span class="semantic-user__label link-node__label">Medici e ASL</span>
+    </a>
+</li>
+</ul></div>
+        <div class="navigation">                    </div>    </div>    <div id="temi-container" class="home-tabs-container">		<div id="temi-lista-1" class="parent list-wrapper active" style=""><ul>
+<li class="semantic-user semantic-user--semantic-user--negative">
+    <a href="https://www.inps.it/nuovoportaleinps/default.aspx?iprestazioni=110&amp;iTema=7620" title="Vai a Adempimenti fiscali" class="link-node">
+    <span class="semantic-user__icon link-node__icon">
+        <em class="fa fa-tags navbar__node__icon"></em>
+    </span>
+    <span class="semantic-user__label link-node__label">Adempimenti fiscali</span>
+    </a>
+</li>
+<li class="semantic-user semantic-user--semantic-user--negative">
+    <a href="https://www.inps.it/nuovoportaleinps/default.aspx?iprestazioni=110&amp;iTema=7631" title="Vai a Assunzioni e collaborazioni" class="link-node">
+    <span class="semantic-user__icon link-node__icon">
+        <em class="fa fa-tags navbar__node__icon"></em>
+    </span>
+    <span class="semantic-user__label link-node__label">Assunzioni e collaborazioni</span>
+    </a>
+</li>
+<li class="semantic-user semantic-user--semantic-user--negative">
+    <a href="https://www.inps.it/nuovoportaleinps/default.aspx?iprestazioni=110&amp;iTema=7622" title="Vai a Banche dati ed elenchi di lavoratori" class="link-node">
+    <span class="semantic-user__icon link-node__icon">
+        <em class="fa fa-tags navbar__node__icon"></em>
+    </span>
+    <span class="semantic-user__label link-node__label">Banche dati ed elenchi di lavoratori</span>
+    </a>
+</li>
+<li class="semantic-user semantic-user--semantic-user--negative">
+    <a href="https://www.inps.it/nuovoportaleinps/default.aspx?iprestazioni=110&amp;iTema=7617" title="Vai a Contributi" class="link-node">
+    <span class="semantic-user__icon link-node__icon">
+        <em class="fa fa-tags navbar__node__icon"></em>
+    </span>
+    <span class="semantic-user__label link-node__label">Contributi</span>
+    </a>
+</li>
+<li class="semantic-user semantic-user--semantic-user--negative">
+    <a href="https://www.inps.it/nuovoportaleinps/default.aspx?iprestazioni=110&amp;iTema=7632" title="Vai a Deleghe e moduli" class="link-node">
+    <span class="semantic-user__icon link-node__icon">
+        <em class="fa fa-tags navbar__node__icon"></em>
+    </span>
+    <span class="semantic-user__label link-node__label">Deleghe e moduli</span>
+    </a>
+</li>
+<li class="semantic-user semantic-user--semantic-user--negative">
+    <a href="https://www.inps.it/nuovoportaleinps/default.aspx?iprestazioni=110&amp;iTema=7618" title="Vai a Disabilità e inabilità" class="link-node">
+    <span class="semantic-user__icon link-node__icon">
+        <em class="fa fa-tags navbar__node__icon"></em>
+    </span>
+    <span class="semantic-user__label link-node__label">Disabilità e inabilità</span>
+    </a>
+</li>
+<li class="semantic-user semantic-user--semantic-user--negative">
+    <a href="https://www.inps.it/nuovoportaleinps/default.aspx?iprestazioni=110&amp;iTema=7629" title="Vai a Disoccupazione, sospensione dal lavoro e salvaguardia lavoratori" class="link-node">
+    <span class="semantic-user__icon link-node__icon">
+        <em class="fa fa-tags navbar__node__icon"></em>
+    </span>
+    <span class="semantic-user__label link-node__label">Disoccupazione, sospensione dal lavoro e salvaguardia lavoratori</span>
+    </a>
+</li>
+<li class="semantic-user semantic-user--semantic-user--negative">
+    <a href="https://www.inps.it/nuovoportaleinps/default.aspx?iprestazioni=110&amp;iTema=7624" title="Vai a Indennità speciali per lavori faticosi o rischiosi, volontariato e donazione di sangue e midollo" class="link-node">
+    <span class="semantic-user__icon link-node__icon">
+        <em class="fa fa-tags navbar__node__icon"></em>
+    </span>
+    <span class="semantic-user__label link-node__label">Indennità speciali per lavori faticosi o rischiosi, volontariato e donazione di sangue e midollo</span>
+    </a>
+</li>
+<li class="semantic-user semantic-user--semantic-user--negative">
+    <a href="https://www.inps.it/nuovoportaleinps/default.aspx?iprestazioni=110&amp;iTema=7649" title="Vai a Iscrizione a fondi e gestioni di categoria" class="link-node">
+    <span class="semantic-user__icon link-node__icon">
+        <em class="fa fa-tags navbar__node__icon"></em>
+    </span>
+    <span class="semantic-user__label link-node__label">Iscrizione a fondi e gestioni di categoria</span>
+    </a>
+</li>
+<li class="semantic-user semantic-user--semantic-user--negative">
+    <a href="https://www.inps.it/nuovoportaleinps/default.aspx?iprestazioni=110&amp;iTema=7630" title="Vai a Lavoro domestico" class="link-node">
+    <span class="semantic-user__icon link-node__icon">
+        <em class="fa fa-tags navbar__node__icon"></em>
+    </span>
+    <span class="semantic-user__label link-node__label">Lavoro domestico</span>
+    </a>
+</li>
+</ul></div>
+<div id="temi-lista-2" class="parent list-wrapper" style="display: none;"><ul>
+<li class="semantic-user semantic-user--semantic-user--negative">
+    <a href="https://www.inps.it/nuovoportaleinps/default.aspx?iprestazioni=110&amp;iTema=7625" title="Vai a Lavoro migrante" class="link-node">
+    <span class="semantic-user__icon link-node__icon">
+        <em class="fa fa-tags navbar__node__icon"></em>
+    </span>
+    <span class="semantic-user__label link-node__label">Lavoro migrante</span>
+    </a>
+</li>
+<li class="semantic-user semantic-user--semantic-user--negative">
+    <a href="https://www.inps.it/nuovoportaleinps/default.aspx?iprestazioni=110&amp;iTema=7628" title="Vai a Malattia, assistenza, cure e soggiorni" class="link-node">
+    <span class="semantic-user__icon link-node__icon">
+        <em class="fa fa-tags navbar__node__icon"></em>
+    </span>
+    <span class="semantic-user__label link-node__label">Malattia, assistenza, cure e soggiorni</span>
+    </a>
+</li>
+<li class="semantic-user semantic-user--semantic-user--negative">
+    <a href="https://www.inps.it/nuovoportaleinps/default.aspx?iprestazioni=110&amp;iTema=7627" title="Vai a Maternità, paternità e congedi matrimoniali" class="link-node">
+    <span class="semantic-user__icon link-node__icon">
+        <em class="fa fa-tags navbar__node__icon"></em>
+    </span>
+    <span class="semantic-user__label link-node__label">Maternità, paternità e congedi matrimoniali</span>
+    </a>
+</li>
+<li class="semantic-user semantic-user--semantic-user--negative">
+    <a href="https://www.inps.it/nuovoportaleinps/default.aspx?iprestazioni=110&amp;iTema=7619" title="Vai a Pensioni" class="link-node">
+    <span class="semantic-user__icon link-node__icon">
+        <em class="fa fa-tags navbar__node__icon"></em>
+    </span>
+    <span class="semantic-user__label link-node__label">Pensioni</span>
+    </a>
+</li>
+<li class="semantic-user semantic-user--semantic-user--negative">
+    <a href="https://www.inps.it/nuovoportaleinps/default.aspx?iprestazioni=110&amp;iTema=7621" title="Vai a Portali e altri strumenti specialistici" class="link-node">
+    <span class="semantic-user__icon link-node__icon">
+        <em class="fa fa-tags navbar__node__icon"></em>
+    </span>
+    <span class="semantic-user__label link-node__label">Portali e altri strumenti specialistici</span>
+    </a>
+</li>
+<li class="semantic-user semantic-user--semantic-user--negative">
+    <a href="https://www.inps.it/nuovoportaleinps/default.aspx?iprestazioni=110&amp;iTema=7633" title="Vai a Previdenza complementare" class="link-node">
+    <span class="semantic-user__icon link-node__icon">
+        <em class="fa fa-tags navbar__node__icon"></em>
+    </span>
+    <span class="semantic-user__label link-node__label">Previdenza complementare</span>
+    </a>
+</li>
+<li class="semantic-user semantic-user--semantic-user--negative">
+    <a href="https://www.inps.it/nuovoportaleinps/default.aspx?iprestazioni=110&amp;iTema=7634" title="Vai a Redditi e patrimonio" class="link-node">
+    <span class="semantic-user__icon link-node__icon">
+        <em class="fa fa-tags navbar__node__icon"></em>
+    </span>
+    <span class="semantic-user__label link-node__label">Redditi e patrimonio</span>
+    </a>
+</li>
+<li class="semantic-user semantic-user--semantic-user--negative">
+    <a href="https://www.inps.it/nuovoportaleinps/default.aspx?iprestazioni=110&amp;iTema=7623" title="Vai a Sgravi fiscali, detrazioni e riduzione delle sanzioni" class="link-node">
+    <span class="semantic-user__icon link-node__icon">
+        <em class="fa fa-tags navbar__node__icon"></em>
+    </span>
+    <span class="semantic-user__label link-node__label">Sgravi fiscali, detrazioni e riduzione delle sanzioni</span>
+    </a>
+</li>
+<li class="semantic-user semantic-user--semantic-user--negative">
+    <a href="https://www.inps.it/nuovoportaleinps/default.aspx?iprestazioni=110&amp;iTema=7669" title="Vai a Sostegno ai superstiti" class="link-node">
+    <span class="semantic-user__icon link-node__icon">
+        <em class="fa fa-tags navbar__node__icon"></em>
+    </span>
+    <span class="semantic-user__label link-node__label">Sostegno ai superstiti</span>
+    </a>
+</li>
+<li class="semantic-user semantic-user--semantic-user--negative">
+    <a href="https://www.inps.it/nuovoportaleinps/default.aspx?iprestazioni=110&amp;iTema=7626" title="Vai a Sostegno economico e allo studio" class="link-node">
+    <span class="semantic-user__icon link-node__icon">
+        <em class="fa fa-tags navbar__node__icon"></em>
+    </span>
+    <span class="semantic-user__label link-node__label">Sostegno economico e allo studio</span>
+    </a>
+</li>
+</ul></div>
+        <div class="navigation">            <a href="javascript:void(0);" data-child="temi-lista-2" title="Visualizza altri temi (1/2)">
+    <em class="fa fa-chevron-right" aria-hidden="true"></em>
+    <span>Visualizza altri (1/2)</span>
+</a>
+        </div>    </div></div>
+</div>
+</div>
+</section>
+<section id="section_fixed_HM">
+<aside class="page-section">
+<div class="container">
+ <div class="row home-row-1" id="ContentInterestingForYou">
+ <div class="col-lg-9" id="helpInterestingForYou">
+ <div id="help_AreaTiPotrebbeInteressare">
+ <div class="col-xs-12"> <h2>Ti potrebbero interessare</h2></div>
+<div class="col-lg-4 col-md-6" data-pagetarget="1">
+	<article class="card card--xs--format-sm card--md--format-md card--lg--format-md">
+		<a href="https://www.inps.it/nuovoportaleinps/default.aspx?itemdir=54480" class="card__link">
+			<div class="card__media">
+				<img class="media-object" src="./INPS - Home Page_files/Visual cedolino della pensione.jpg" alt="Pensionati: il cedolino di pensione di dicembre 2020">
+			</div>
+			<div class="card__information">
+				<div class="thumb-image">
+					<img src="./INPS - Home Page_files/Visual cedolino della pensione.jpg" alt="">
+				</div>
+				<div class="card__identity ">
+					<span class="card__identity__icon">
+					<em class="fa fa-newspaper-o">
+					</em>
+					</span>
+					<span class="card__identity__label">Notizia
+					</span>
+					<span class="card__identity__date">26/11/2020
+					</span>
+				</div>
+				<header class="card__header">
+					<h2 class="card__heading" title="Pensionati: il cedolino di pensione di dicembre 2020">Pensionati: il cedolino di pensione di dicembre 2020
+					</h2>
+				</header>
+				<div class="card__content">
+				</div>
+			</div>
+		</a>
+		<div class="card__metadata">
+			<div class="people-activity-meta">
+<div class="mediaShare" id="cuoricino0" style="display:none"><div class="mediaContent" style="font-size:13px;text-align:left"> 
+ <a href="Javascript:goLoginPassi(&#39;https://serviziweb2.inps.it/PassiWeb/jsp/login.jsp&#39;);" style="font-size:13px;color:white;text-decoration:underline"> Registrati al MyINPS</a><br> per aggiungere questo contenuto all'elenco dei tuoi interessi. 
+</div><div class="arrowDown two" style="margin-left: 10%"></div></div> 
+
+<div id="shareTiPotrebbeInteressareHP1" class="mediaShare" style="display:none">
+	<div class="mediaContent">Condividi questo contenuto:
+ <div class="share-buttons">
+ <a href="https://www.inps.it/nuovoportaleinps/default.aspx#" title="share facebook" onclick="ShareSocialNetwork(&#39;facebook&#39;, &#39;//www.inps.it/nuovoportaleinps/default.aspx?itemdir=54480&amp;tipologia=news&amp;idunivoco=54480&#39;); return false;"><strong class="fa fa-facebook-official "></strong></a>
+			<a href="https://www.inps.it/nuovoportaleinps/default.aspx#" title="share twitter" onclick="ShareSocialNetwork(&#39;twitter&#39;, &#39;//www.inps.it/nuovoportaleinps/default.aspx?itemdir=54480&amp;tipologia=news&amp;idunivoco=54480&#39;); return false;"><strong class="fa fa-twitter"></strong></a>
+			<a href="https://www.inps.it/nuovoportaleinps/default.aspx#" title="share linkedin" onclick="ShareSocialNetwork(&#39;linkedin&#39;, &#39;//www.inps.it/nuovoportaleinps/default.aspx?itemdir=54480&amp;tipologia=news&amp;idunivoco=54480&#39;); return false;"><strong class="fa fa-linkedin-square"></strong></a>
+ </div>
+ </div>
+ <div class="arrowDown two"></div>
+</div>
+
+				<ul>
+ <li class="favorites"><a style="cursor:pointer;" href="javascript:void(0);" onclick="ShowdivShare(&#39;cuoricino0&#39;)"><em class="icon icon__heart"></em>116 </a></li>
+<li class="share"><a style="cursor:pointer;" title="Condivisioni degli ultimi 3 mesi" href="javascript: Void(0);" onclick="ShowdivShare(&#39;shareTiPotrebbeInteressareHP1&#39;)"><em class="icon icon__share"></em>13</a></li>
+				</ul>
+			</div>
+		</div>
+	</article>
+</div>
+
+<div class="col-lg-4 col-md-6" data-pagetarget="1">
+	<article class="card card--xs--format-sm card--md--format-md card--lg--format-md">
+		<a href="https://www.inps.it/nuovoportaleinps/default.aspx?itemdir=54133" class="card__link">
+			<div class="card__media">
+				<img class="media-object" src="./INPS - Home Page_files/AdobeStock_144871848.jpg" alt="Dal 1°ottobre il PIN INPS va in pensione">
+			</div>
+			<div class="card__information">
+				<div class="thumb-image">
+					<img src="./INPS - Home Page_files/AdobeStock_144871848.jpg" alt="">
+				</div>
+				<div class="card__identity ">
+					<span class="card__identity__icon">
+					<em class="fa fa-newspaper-o">
+					</em>
+					</span>
+					<span class="card__identity__label">Notizia
+					</span>
+					<span class="card__identity__date">06/08/2020
+					</span>
+				</div>
+				<header class="card__header">
+					<h2 class="card__heading" title="Dal 1°ottobre il PIN INPS va in pensione">Dal 1°ottobre il PIN INPS va in pensione
+					</h2>
+				</header>
+				<div class="card__content">
+				</div>
+			</div>
+		</a>
+		<div class="card__metadata">
+			<div class="people-activity-meta">
+<div class="mediaShare" id="cuoricino1" style="display:none"><div class="mediaContent" style="font-size:13px;text-align:left"> 
+ <a href="Javascript:goLoginPassi(&#39;https://serviziweb2.inps.it/PassiWeb/jsp/login.jsp&#39;);" style="font-size:13px;color:white;text-decoration:underline"> Registrati al MyINPS</a><br> per aggiungere questo contenuto all'elenco dei tuoi interessi. 
+</div><div class="arrowDown two" style="margin-left: 10%"></div></div> 
+
+<div id="shareTiPotrebbeInteressareHP2" class="mediaShare" style="display:none">
+	<div class="mediaContent">Condividi questo contenuto:
+ <div class="share-buttons">
+ <a href="https://www.inps.it/nuovoportaleinps/default.aspx#" title="share facebook" onclick="ShareSocialNetwork(&#39;facebook&#39;, &#39;//www.inps.it/nuovoportaleinps/default.aspx?itemdir=54133&amp;tipologia=news&amp;idunivoco=54133&#39;); return false;"><strong class="fa fa-facebook-official "></strong></a>
+			<a href="https://www.inps.it/nuovoportaleinps/default.aspx#" title="share twitter" onclick="ShareSocialNetwork(&#39;twitter&#39;, &#39;//www.inps.it/nuovoportaleinps/default.aspx?itemdir=54133&amp;tipologia=news&amp;idunivoco=54133&#39;); return false;"><strong class="fa fa-twitter"></strong></a>
+			<a href="https://www.inps.it/nuovoportaleinps/default.aspx#" title="share linkedin" onclick="ShareSocialNetwork(&#39;linkedin&#39;, &#39;//www.inps.it/nuovoportaleinps/default.aspx?itemdir=54133&amp;tipologia=news&amp;idunivoco=54133&#39;); return false;"><strong class="fa fa-linkedin-square"></strong></a>
+ </div>
+ </div>
+ <div class="arrowDown two"></div>
+</div>
+
+				<ul>
+ <li class="favorites"><a style="cursor:pointer;" href="javascript:void(0);" onclick="ShowdivShare(&#39;cuoricino1&#39;)"><em class="icon icon__heart"></em>849 </a></li>
+<li class="share"><a style="cursor:pointer;" title="Condivisioni degli ultimi 3 mesi" href="javascript: Void(0);" onclick="ShowdivShare(&#39;shareTiPotrebbeInteressareHP2&#39;)"><em class="icon icon__share"></em>173</a></li>
+				</ul>
+			</div>
+		</div>
+	</article>
+</div>
+
+<div class="col-lg-4 col-md-6">
+	<article class="card card--xs--format-sm card--md--format-xs card--lg--format-sm">
+		<a class="card__link" href="https://www.inps.it/nuovoportaleinps/default.aspx?itemdir=54500">
+			<div class="card__media" style="">
+				<img alt="Concorso INPS: pubblicato il bando per 15 avvocati" src="./INPS - Home Page_files/Visual-concorsi-06.jpg" class="media-object large-image">
+			</div>
+			<div class="card__information">
+				<div class="thumb-image">
+					<img alt="" src="./INPS - Home Page_files/Visual-concorsi-06.jpg">
+				</div>
+				<div class="card__identity ">
+					<span class="card__identity__icon">
+					<em class="fa fa-newspaper-o"></em>
+					</span>
+					<span class="card__identity__label">Notizia</span>
+					<span class="">27/11/2020</span>
+				</div>
+				<header class="card__header">
+					<h2 class="card__heading" title="Concorso INPS: pubblicato il bando per 15 avvocati">Concorso INPS: pubblicato il bando per 15 avvocati</h2>
+				</header>
+				<div class="card__content">
+				</div>
+			</div>
+		</a>
+		<div class="card__metadata">
+			<div class="people-activity-meta">
+<div class="mediaShare" id="cuoricino2" style="display:none"><div class="mediaContent" style="font-size:13px;text-align:left"> 
+ <a href="Javascript:goLoginPassi(&#39;https://serviziweb2.inps.it/PassiWeb/jsp/login.jsp&#39;);" style="font-size:13px;color:white;text-decoration:underline"> Registrati al MyINPS</a><br> per aggiungere questo contenuto all'elenco dei tuoi interessi. 
+</div><div class="arrowDown two" style="margin-left: 10%"></div></div> 
+
+<div id="shareTiPotrebbeInteressareHP3" class="mediaShare" style="display:none">
+	<div class="mediaContent">Condividi questo contenuto:
+ <div class="share-buttons">
+ <a href="https://www.inps.it/nuovoportaleinps/default.aspx#" title="share facebook" onclick="ShareSocialNetwork(&#39;facebook&#39;, &#39;//www.inps.it/nuovoportaleinps/default.aspx?itemdir=54500&amp;tipologia=news&amp;idunivoco=54500&#39;); return false;"><strong class="fa fa-facebook-official "></strong></a>
+			<a href="https://www.inps.it/nuovoportaleinps/default.aspx#" title="share twitter" onclick="ShareSocialNetwork(&#39;twitter&#39;, &#39;//www.inps.it/nuovoportaleinps/default.aspx?itemdir=54500&amp;tipologia=news&amp;idunivoco=54500&#39;); return false;"><strong class="fa fa-twitter"></strong></a>
+			<a href="https://www.inps.it/nuovoportaleinps/default.aspx#" title="share linkedin" onclick="ShareSocialNetwork(&#39;linkedin&#39;, &#39;//www.inps.it/nuovoportaleinps/default.aspx?itemdir=54500&amp;tipologia=news&amp;idunivoco=54500&#39;); return false;"><strong class="fa fa-linkedin-square"></strong></a>
+ </div>
+ </div>
+ <div class="arrowDown two"></div>
+</div>
+
+				<ul>
+ <li class="favorites"><a style="cursor:pointer;" href="javascript:void(0);" onclick="ShowdivShare(&#39;cuoricino2&#39;)"><em class="icon icon__heart"></em>10 </a></li>
+<li class="share"><a style="cursor:pointer;" title="Condivisioni degli ultimi 3 mesi" href="javascript: Void(0);" onclick="ShowdivShare(&#39;shareTiPotrebbeInteressareHP3&#39;)"><em class="icon icon__share"></em>45</a></li>
+				</ul>
+			</div>
+		</div>
+	</article>
+</div>
+
+<div class="col-lg-4 col-md-6">
+	<article class="card card--xs--format-sm card--md--format-xs card--lg--format-sm">
+		<a class="card__link" href="https://www.inps.it/nuovoportaleinps/default.aspx?itemdir=54359">
+			<div class="card__media" style="">
+				<img alt="Pensionati all&#39;estero: servizio di videochiamata" src="./INPS - Home Page_files/AdobeStock_74887538.jpg" class="media-object large-image">
+			</div>
+			<div class="card__information">
+				<div class="thumb-image">
+					<img alt="" src="./INPS - Home Page_files/AdobeStock_74887538.jpg">
+				</div>
+				<div class="card__identity ">
+					<span class="card__identity__icon">
+					<em class="fa fa-newspaper-o"></em>
+					</span>
+					<span class="card__identity__label">Notizia</span>
+					<span class="">29/10/2020</span>
+				</div>
+				<header class="card__header">
+					<h2 class="card__heading" title="Pensionati all&#39;estero: servizio di videochiamata">Pensionati all'estero: servizio di videochiamata</h2>
+				</header>
+				<div class="card__content">
+				</div>
+			</div>
+		</a>
+		<div class="card__metadata">
+			<div class="people-activity-meta">
+<div class="mediaShare" id="cuoricino3" style="display:none"><div class="mediaContent" style="font-size:13px;text-align:left"> 
+ <a href="Javascript:goLoginPassi(&#39;https://serviziweb2.inps.it/PassiWeb/jsp/login.jsp&#39;);" style="font-size:13px;color:white;text-decoration:underline"> Registrati al MyINPS</a><br> per aggiungere questo contenuto all'elenco dei tuoi interessi. 
+</div><div class="arrowDown two" style="margin-left: 10%"></div></div> 
+
+<div id="shareTiPotrebbeInteressareHP4" class="mediaShare" style="display:none">
+	<div class="mediaContent">Condividi questo contenuto:
+ <div class="share-buttons">
+ <a href="https://www.inps.it/nuovoportaleinps/default.aspx#" title="share facebook" onclick="ShareSocialNetwork(&#39;facebook&#39;, &#39;//www.inps.it/nuovoportaleinps/default.aspx?itemdir=54359&amp;tipologia=news&amp;idunivoco=54359&#39;); return false;"><strong class="fa fa-facebook-official "></strong></a>
+			<a href="https://www.inps.it/nuovoportaleinps/default.aspx#" title="share twitter" onclick="ShareSocialNetwork(&#39;twitter&#39;, &#39;//www.inps.it/nuovoportaleinps/default.aspx?itemdir=54359&amp;tipologia=news&amp;idunivoco=54359&#39;); return false;"><strong class="fa fa-twitter"></strong></a>
+			<a href="https://www.inps.it/nuovoportaleinps/default.aspx#" title="share linkedin" onclick="ShareSocialNetwork(&#39;linkedin&#39;, &#39;//www.inps.it/nuovoportaleinps/default.aspx?itemdir=54359&amp;tipologia=news&amp;idunivoco=54359&#39;); return false;"><strong class="fa fa-linkedin-square"></strong></a>
+ </div>
+ </div>
+ <div class="arrowDown two"></div>
+</div>
+
+				<ul>
+ <li class="favorites"><a style="cursor:pointer;" href="javascript:void(0);" onclick="ShowdivShare(&#39;cuoricino3&#39;)"><em class="icon icon__heart"></em>5 </a></li>
+<li class="share"><a style="cursor:pointer;" title="Condivisioni degli ultimi 3 mesi" href="javascript: Void(0);" onclick="ShowdivShare(&#39;shareTiPotrebbeInteressareHP4&#39;)"><em class="icon icon__share"></em>8</a></li>
+				</ul>
+			</div>
+		</div>
+	</article>
+</div>
 
 
- <!-- Begin Default Content REMOVE THIS -->
-  <h1>Chatta con noi</h1>
-<style type='text/css'>
-	.embeddedServiceHelpButton .helpButton .uiButton {
-		background-color: #005290;
-		font-family: "Arial", sans-serif;
-    	max-width:22em;
-    	font-size:1.2em;
-	}
-	.embeddedServiceHelpButton .helpButton .uiButton:focus {
-		outline: 1px solid #005290;
-	}
-    
-    
-</style>
+ </div>
+ </div>
+ <div class="col-lg-3">
+ <div class="content hot-contents" id="helpMoreUsedServices">
+ <h2 id="lblServiziConsigliati">Servizi più utilizzati</h2>
 
-<script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
-<script type='text/javascript'>
-	var initESW = function(gslbBaseURL) {
-		embedded_svc.settings.displayHelpButton = true; //Or false
-		embedded_svc.settings.language = 'it'; //For example, enter 'en' or 'en-US'
-		embedded_svc.settings.defaultMinimizedText = 'Chatta con un operatore'; //(Defaults to Chat with an Expert)
-		//embedded_svc.settings.disabledMinimizedText = '...'; //(Defaults to Agent Offline)
+ <div class="row">
+ <!-- Servizi usati di recente -->
+ <div class="col-md-6 col-lg-12">
+<article class="card card--xs--format-xs card--lg--format-xs card__identity--servizio">
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx?iiDServizio=2532" data-type="servizio" class="card__link">
+<div class="card__media" style="">
+<img class="media-object large-image" src="./INPS - Home Page_files/429_Fotolia_75966615_Subscription_Yearly_XL.jpg" alt="Maternità e congedo parentale lavoratori dipendenti, autonomi, gestione separata">
+</div>
+<div class="card__information">
+<div class="card__identity card__identity--">
+<span class="card__identity__icon">
+<em class="fa fa-laptop">
+</em>
+</span>
+<span class="card__identity__label">Servizio
+</span>
+<span class="card__identity__date">
+</span>
+</div>
+<header class="card__header">
+<h2 class="card__heading" title="Maternità e congedo parentale lavoratori dipendenti, autonomi, gestione separata">Maternità e congedo parentale lavoratori dipendenti, autonomi, gestione ...</h2></header>
+<div class="card__content"></div>
+</div>
+</a>
+</article>
+<article class="card card--xs--format-xs card--lg--format-xs card__identity--servizio">
+<a href="https://servizi2.inps.it/servizi/VoucherCuraItalia" data-type="servizio" class="card__link">
+<div class="card__media" style="">
+<img class="media-object large-image" src="./INPS - Home Page_files/429_Fotolia_75966615_Subscription_Yearly_XL.jpg" alt="Bonus servizi di baby sitting">
+</div>
+<div class="card__information">
+<div class="card__identity card__identity--">
+<span class="card__identity__icon">
+<em class="fa fa-laptop">
+</em>
+</span>
+<span class="card__identity__label">Servizio
+</span>
+<span class="card__identity__date">
+</span>
+</div>
+<header class="card__header">
+<h2 class="card__heading" title="Bonus servizi di baby sitting">Bonus servizi di baby sitting</h2></header>
+<div class="card__content"></div>
+</div>
+</a>
+</article>
+</div>
+<div class="col-md-6 col-lg-12">
+<article class="card card--xs--format-xs card--lg--format-xs card__identity--servizio">
+<a href="https://serviziweb2.inps.it/IndCovidWeb/anagraficaIndCovid.do?method=presenzaDomandePrecedenti_IndCovid&amp;idNav=AA_02&amp;S=S" data-type="servizio" class="card__link">
+<div class="card__media" style="">
+<img class="media-object large-image" src="./INPS - Home Page_files/429_Fotolia_75966615_Subscription_Yearly_XL.jpg" alt="Indennità COVID-19 (Bonus 600 euro)">
+</div>
+<div class="card__information">
+<div class="card__identity card__identity--">
+<span class="card__identity__icon">
+<em class="fa fa-laptop">
+</em>
+</span>
+<span class="card__identity__label">Servizio
+</span>
+<span class="card__identity__date">
+</span>
+</div>
+<header class="card__header">
+<h2 class="card__heading" title="Indennità COVID-19 (Bonus 600 euro)">Indennità COVID-19 (Bonus 600 euro)</h2></header>
+<div class="card__content"></div>
+</div>
+</a>
+</article>
+<article class="card card--xs--format-xs card--lg--format-xs card__identity--servizio">
+<a href="https://serviziweb2.inps.it/RedditoEmergenza" data-type="servizio" class="card__link">
+<div class="card__media" style="">
+<img class="media-object large-image" src="./INPS - Home Page_files/429_Fotolia_75966615_Subscription_Yearly_XL.jpg" alt="Reddito di Emergenza">
+</div>
+<div class="card__information">
+<div class="card__identity card__identity--">
+<span class="card__identity__icon">
+<em class="fa fa-laptop">
+</em>
+</span>
+<span class="card__identity__label">Servizio
+</span>
+<span class="card__identity__date">
+</span>
+</div>
+<header class="card__header">
+<h2 class="card__heading" title="Reddito di Emergenza">Reddito di Emergenza</h2></header>
+<div class="card__content"></div>
+</div>
+</a>
+</article>
+</div>
 
-		//embedded_svc.settings.loadingText = ''; //(Defaults to Loading)
-		//embedded_svc.settings.storageDomain = 'yourdomain.com'; //(Sets the domain for your deployment so that visitors can navigate subdomains during a chat session)
+ </div>
+ </div>
+ </div>
+ </div>
+ <div id="ContentHotSocial" class="row">
+ <div id="helpHotContents">
+ <div class="col-md-6 col-lg-3">
+ <div class="content hot-contents">
+ <h2 class="hot-contents__heading">Più condivisi
+ </h2>
+  <article class="card card--xs--format-xs card--lg--format-xs">     <a href="https://www.inps.it/nuovoportaleinps/default.aspx?itemDir=54343" class="card__link">         <div class="card__media">Indennità Covid-19: online la domanda onnicomprensiva</div>         <div class="card__information">             <div class="card__identity card__identity--">                 <span class="card__identity__icon">                     <em class="fa fa-newspaper-o"></em>                 </span>                 <span class="card__identity__label">Notizia</span>                 <span class="card__identity__date">23/10/2020</span>             </div>             <header class="card__header"><h2 class="card__heading" title="Indennità Covid-19: online la domanda onnicomprensiva">Indennità Covid-19: online la domanda onnicomprensiva</h2>             </header>             <div class="card__content">             </div>         </div>     </a> </article><article class="card card--xs--format-xs card--lg--format-xs">     <a href="https://www.inps.it/nuovoportaleinps/default.aspx?itemDir=54283" class="card__link">         <div class="card__media">Incremento delle prestazioni di invalidità civile (invalidi civili total...</div>         <div class="card__information">             <div class="card__identity card__identity--">                 <span class="card__identity__icon">                     <em class="fa fa-newspaper-o"></em>                 </span>                 <span class="card__identity__label">Notizia</span>                 <span class="card__identity__date">13/10/2020</span>             </div>             <header class="card__header"><h2 class="card__heading" title="Incremento delle prestazioni di invalidità civile (invalidi civili totali, ciechi civili, sordi e titolari di pensione di inabilità previdenziale)">Incremento delle prestazioni di invalidità civile (invalidi civili total...</h2>             </header>             <div class="card__content">             </div>         </div>     </a> </article><article class="card card--xs--format-xs card--lg--format-xs">     <a href="https://www.inps.it/nuovoportaleinps/default.aspx?itemDir=54133" class="card__link">         <div class="card__media">Dal 1°ottobre il PIN INPS va in pensione</div>         <div class="card__information">             <div class="card__identity card__identity--">                 <span class="card__identity__icon">                     <em class="fa fa-newspaper-o"></em>                 </span>                 <span class="card__identity__label">Notizia</span>                 <span class="card__identity__date">06/08/2020</span>             </div>             <header class="card__header"><h2 class="card__heading" title="Dal 1°ottobre il PIN INPS va in pensione">Dal 1°ottobre il PIN INPS va in pensione</h2>             </header>             <div class="card__content">             </div>         </div>     </a> </article><article class="card card--xs--format-xs card--lg--format-xs card__identity--servizio">     <a href="https://www.inps.it/nuovoportaleinps/default.aspx?itemDir=53736" class="card__link">         <div class="card__media">Reddito di Emergenza</div>         <div class="card__information">             <div class="card__identity card__identity--">                 <span class="card__identity__icon">                     <em class="fa fa-inbox"></em>                 </span>                 <span class="card__identity__label">Scheda Prestazione</span>                 <span class="card__identity__date"></span>             </div>             <header class="card__header"><h2 class="card__heading" title="Reddito di Emergenza">Reddito di Emergenza</h2>             </header>             <div class="card__content">             </div>         </div>     </a> </article><div class="hot-contents__more-button">						<a class="hot-contents__more-button" href="https://www.inps.it/nuovoportaleinps/default.aspx?service-finder-action=7">						<em class="fa fa-arrow-circle-o-right">						</em>						Vedi tutti i più condivisi						</a>					</div><!--CCC CACHE--> 
+ </div>
+ </div>
+ <div class="col-md-6 col-lg-3">
+ <div class="content hot-contents">
+ <h2 class="hot-contents__heading">Più cliccati
+ </h2>
+  <article class="card card--xs--format-xs card--lg--format-xs">     <a href="https://www.inps.it/nuovoportaleinps/default.aspx?itemDir=54511" class="card__link">         <div class="card__media">Corso di lingua in Italia 2019: proroga termine dell’esame finale</div>         <div class="card__information">             <div class="card__identity card__identity--">                 <span class="card__identity__icon">                     <em class="fa fa-newspaper-o"></em>                 </span>                 <span class="card__identity__label">Notizia</span>                 <span class="card__identity__date">02/12/2020</span>             </div>             <header class="card__header"><h2 class="card__heading" title="Corso di lingua in Italia 2019: proroga termine dell’esame finale">Corso di lingua in Italia 2019: proroga termine dell’esame finale</h2>             </header>             <div class="card__content">             </div>         </div>     </a> </article><article class="card card--xs--format-xs card--lg--format-xs">     <a href="https://www.inps.it/nuovoportaleinps/default.aspx?itemDir=54496" class="card__link">         <div class="card__media">NASpI: accesso a seguito di accordo collettivo aziendale</div>         <div class="card__information">             <div class="card__identity card__identity--">                 <span class="card__identity__icon">                     <em class="fa fa-newspaper-o"></em>                 </span>                 <span class="card__identity__label">Notizia</span>                 <span class="card__identity__date">27/11/2020</span>             </div>             <header class="card__header"><h2 class="card__heading" title="NASpI: accesso a seguito di accordo collettivo aziendale">NASpI: accesso a seguito di accordo collettivo aziendale</h2>             </header>             <div class="card__content">             </div>         </div>     </a> </article><article class="card card--xs--format-xs card--lg--format-xs">     <a href="https://www.inps.it/nuovoportaleinps/default.aspx?itemDir=54508" class="card__link">         <div class="card__media">Contributi per handicap grave e grave malattia 2020: online il bando</div>         <div class="card__information">             <div class="card__identity card__identity--">                 <span class="card__identity__icon">                     <em class="fa fa-newspaper-o"></em>                 </span>                 <span class="card__identity__label">Notizia</span>                 <span class="card__identity__date">01/12/2020</span>             </div>             <header class="card__header"><h2 class="card__heading" title="Contributi per handicap grave e grave malattia 2020: online il bando">Contributi per handicap grave e grave malattia 2020: online il bando</h2>             </header>             <div class="card__content">             </div>         </div>     </a> </article><article class="card card--xs--format-xs card--lg--format-xs">     <a href="https://www.inps.it/nuovoportaleinps/default.aspx?itemDir=54466" class="card__link">         <div class="card__media">Programma Itaca 2021-2022: pubblicato il bando</div>         <div class="card__information">             <div class="card__identity card__identity--">                 <span class="card__identity__icon">                     <em class="fa fa-newspaper-o"></em>                 </span>                 <span class="card__identity__label">Notizia</span>                 <span class="card__identity__date">23/11/2020</span>             </div>             <header class="card__header"><h2 class="card__heading" title="Programma Itaca 2021-2022: pubblicato il bando">Programma Itaca 2021-2022: pubblicato il bando</h2>             </header>             <div class="card__content">             </div>         </div>     </a> </article><div class="hot-contents__more-button">						<a class="hot-contents__more-button" href="https://www.inps.it/nuovoportaleinps/default.aspx?service-finder-action=6">						<em class="fa fa-arrow-circle-o-right">						</em>						Vedi tutti i più cliccati						</a>					</div><!--CCC CACHE--> 
+ </div>
+ </div>
+ <div class="col-md-6 col-lg-3">
+ <div class="content hot-contents">
+ <h2 class="hot-contents__heading">Più cercati
+ </h2>
+  <article class="card card--xs--format-xs card--lg--format-xs">     <a href="https://www.inps.it/nuovoportaleinps/default.aspx?itemDir=54484" class="card__link">         <div class="card__media">Sistemazione posizione assicurativa: risultati collaborazione INPS-Minis...</div>         <div class="card__information">             <div class="card__identity card__identity--">                 <span class="card__identity__icon">                     <em class="fa fa-newspaper-o"></em>                 </span>                 <span class="card__identity__label">Notizia</span>                 <span class="card__identity__date">26/11/2020</span>             </div>             <header class="card__header"><h2 class="card__heading" title="Sistemazione posizione assicurativa: risultati collaborazione INPS-Ministero della Giustizia">Sistemazione posizione assicurativa: risultati collaborazione INPS-Minis...</h2>             </header>             <div class="card__content">             </div>         </div>     </a> </article><article class="card card--xs--format-xs card--lg--format-xs">     <a href="https://www.inps.it/nuovoportaleinps/default.aspx?itemDir=54494" class="card__link">         <div class="card__media">Decreto Ristori: indennità una tantum e indennità onnicomprensiva</div>         <div class="card__information">             <div class="card__identity card__identity--">                 <span class="card__identity__icon">                     <em class="fa fa-newspaper-o"></em>                 </span>                 <span class="card__identity__label">Notizia</span>                 <span class="card__identity__date">27/11/2020</span>             </div>             <header class="card__header"><h2 class="card__heading" title="Decreto Ristori: indennità una tantum e indennità onnicomprensiva">Decreto Ristori: indennità una tantum e indennità onnicomprensiva</h2>             </header>             <div class="card__content">             </div>         </div>     </a> </article><article class="card card--xs--format-xs card--lg--format-xs">     <a href="https://www.inps.it/nuovoportaleinps/default.aspx?itemDir=54467" class="card__link">         <div class="card__media">Assegni di frequenza e contributi formativi 2019-2020: bando online</div>         <div class="card__information">             <div class="card__identity card__identity--">                 <span class="card__identity__icon">                     <em class="fa fa-newspaper-o"></em>                 </span>                 <span class="card__identity__label">Notizia</span>                 <span class="card__identity__date">23/11/2020</span>             </div>             <header class="card__header"><h2 class="card__heading" title="Assegni di frequenza e contributi formativi 2019-2020: bando online">Assegni di frequenza e contributi formativi 2019-2020: bando online</h2>             </header>             <div class="card__content">             </div>         </div>     </a> </article><article class="card card--xs--format-xs card--lg--format-xs">     <a href="https://www.inps.it/nuovoportaleinps/default.aspx?itemDir=54457" class="card__link">         <div class="card__media">Reddito di Cittadinanza e Reddito di Emergenza: due guide aggiornate</div>         <div class="card__information">             <div class="card__identity card__identity--">                 <span class="card__identity__icon">                     <em class="fa fa-newspaper-o"></em>                 </span>                 <span class="card__identity__label">Notizia</span>                 <span class="card__identity__date">19/11/2020</span>             </div>             <header class="card__header"><h2 class="card__heading" title="Reddito di Cittadinanza e Reddito di Emergenza: due guide aggiornate">Reddito di Cittadinanza e Reddito di Emergenza: due guide aggiornate</h2>             </header>             <div class="card__content">             </div>         </div>     </a> </article><div class="hot-contents__more-button">						<a class="hot-contents__more-button" href="https://www.inps.it/nuovoportaleinps/default.aspx?service-finder-action=5">						<em class="fa fa-arrow-circle-o-right">						</em>						Vedi tutti i più cercati						</a>					</div><!--CCC CACHE--> 
+ </div>
+ </div>
+ </div>
+ <div id="boxSocialStream" class="col-md-6 col-lg-3">
+ <div class="social-stream" id="helpSocialStream" tabindex="-1">
+ <!-- Nav tabs -->
+ <ul id="social-stream-tabs" class="nav nav-tabs" role="tablist">
+ <li role="presentation" class="active">
+ <a href="https://www.inps.it/nuovoportaleinps/default.aspx#tab-facebook" aria-controls="tab-facebook" role="tab" data-toggle="tab">
+ <em class="fa fa-facebook-square"></em>Facebook
+ </a>
+ </li>
+ <li role="presentation">
+ <a href="https://www.inps.it/nuovoportaleinps/default.aspx#tab-twitter" aria-controls="tab-twitter" role="tab" data-toggle="tab">
+ <em class="fa fa-twitter"></em>Twitter
+ </a>
+ </li>
+ </ul>
 
-		// Settings for Chat
-		//embedded_svc.settings.directToButtonRouting = function(prechatFormData) {
-			// Dynamically changes the button ID based on what the visitor enters in the pre-chat form.
-			// Returns a valid button ID.
-		//};
-		//embedded_svc.settings.prepopulatedPrechatFields = {}; //Sets the auto-population of pre-chat form fields
-		//embedded_svc.settings.fallbackRouting = []; //An array of button IDs, user IDs, or userId_buttonId
-		//embedded_svc.settings.offlineSupportMinimizedText = '...'; //(Defaults to Contact Us)
+ <!-- Tab panes -->
+ <div class="tab-content">
+ 
+ <div role="tabpanel" class="tab-pane active content" id="tab-facebook" style="min-height:200px;">
+ <div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; width: 0px; height: 0px;"><div></div></div></div>
 
-		embedded_svc.settings.enabledFeatures = ['LiveAgent'];
-		embedded_svc.settings.entryFeature = 'LiveAgent';
 
-		embedded_svc.init(
-			'https://inps--clodevmerg.my.salesforce.com',
-			'https://clodevmerg-sogei.cs88.force.com/FatturazioneElettronica',
-			gslbBaseURL,
-			'00D9E0000004m3H',
-			'INPS_Demo',
-			{
-				baseLiveAgentContentURL: 'https://c.la2-c1cs-fra.salesforceliveagent.com/content',
-				deploymentId: '5722o000000XgTT',
-				buttonId: '5739E0000008Ppi',
-				baseLiveAgentURL: 'https://d.la2-c1cs-fra.salesforceliveagent.com/chat',
-				eswLiveAgentDevName: 'INPS_Demo',
-				isOfflineSupportEnabled: false
-			}
-		);
-        embedded_svc.settings.extraPrechatFormDetails = [
-            {
-            "label":"First Name",
-            "value" : "Franco", //@SOGEI -> Inserire Variabile contenente il Nome dell'utente
-            "displayToAgent": true
-            },
-            {
-            "label":"Last Name",
-            "value" : "Russo",  //@SOGEI -> Inserire Variabile contenente il Cognome dell'utente
-            "displayToAgent": true
-            },
-            {
-            "label": "RecordTypeId",
-            "value": "",
-            "displayToAgent": true
-            },
-            {
-            "label": "Telefono",
-            "displayToAgent": true
-            },
-            {
-            "label": "Email",
-            "displayToAgent": true
-            },
-            {
-            "label": "Fiscal Code",
-            "value": "RSSFNC80A01F839D",    //@SOGEI -> Inserire Variabile contenente il CF dell'utente
-            "displayToAgent": true  
-            },
-            {
-            "label": "CaseStatus",
-            "value": "Open",
-            "displayToAgent": false 
-            },
-            {
-            "label": "CaseOrigin",
-            "value": "Chat",
-            "displayToAgent": false 
-            },
-            {
-            "label": "CaseRespChannel",
-            "value": "Live Chat",
-            "displayToAgent": false 
-            },
-            {
-            "label": "TaskType",
-            "value": "Live Chat",
-            "displayToAgent": false 
-            },
-            {
-            "label": "TaskSubject",
-            "value": "Live Chat",
-            "displayToAgent": false 
-            }
-        ];
-		
-        embedded_svc.settings.extraPrechatInfo = [
-            
-            //PERSON ACCOUNT
-            {
-                "entityName": "Account",
-                "linkToEntityName": "Case",
-                "linkToEntityField": "ContactId",
-                "saveToTranscript": "AccountId",
-                "entityFieldMaps":[
-                    {
-                        "doCreate": true,
-                        "doFind": false,
-                        "fieldName": "RecordTypeId",
-                        "isExactMatch": false,
-                        "label": "RecordTypeId"
-                    },
-                    {
-                        "isExactMatch":false,
-                        "fieldName":"FirstName",
-                        "doCreate":true,
-                        "doFind":false,
-                        "label":"First Name"
-                    },
-                    {
-                        "isExactMatch":false,
-                        "fieldName":"Phone",
-                        "doCreate":true,
-                        "doFind":false,
-                        "label":"Telefono"
-                    },
-                    {
-                        "isExactMatch":false,
-                        "fieldName":"PersonEmail",
-                        "doCreate":true,
-                        "doFind":false,
-                        "label":"Email"
-                    },
-                    {
-                        "isExactMatch":false,
-                        "fieldName":"LastName",
-                        "doCreate":true,
-                        "doFind":false,
-                        "label":"Last Name"
-                    },
-                    {
-                        "isExactMatch":true,
-                        "fieldName":"Fiscal_Code__pc",
-                        "doCreate":true,
-                        "doFind":true,
-                        "label":"Fiscal Code"   
-                    }
-                ]
-            },
-            
-            //CONTACT
-            {
-                "entityName": "Contact",
-                "saveToTranscript": "ContactId",
-                "entityFieldMaps": [
-                    {
-                        "isExactMatch":true,
-                        "fieldName":"Fiscal_Code__c",
-                        "doCreate":true,
-                        "doFind":true,
-                        "label":"Codice Fiscale"    
-                    },
-                    {
-                        "isExactMatch":false,
-                        "fieldName":"LastName",
-                        "doCreate":false,
-                        "doFind":false,
-                        "label":"Cognome"
-                    },
-                    {
-                        "isExactMatch":false,
-                        "fieldName":"FirstName",
-                        "doCreate":false,
-                        "doFind":false,
-                        "label":"Nome"
-                    },
-                    {
-                        "isExactMatch":false,
-                        "fieldName":"Email",
-                        "doCreate":false,
-                        "doFind":false,
-                        "label":"Email"
-                    },
-                    {
-                        "isExactMatch":false,
-                        "fieldName":"Phone",
-                        "doCreate":false,
-                        "doFind":false,
-                        "label":"Telefono"
-                    }
-                ]
-            },
-            
-            //CASE
-            {
-                "entityName": "Case",
-                "saveToTranscript": "CaseId",
-                "linkToEntityName": "Task",
-                "linkToEntityField": "WhatId",
-                "entityFieldMaps": [
-                    {
-                        "isExactMatch":false,
-                        "fieldName":"Status",
-                        "doCreate":true,
-                        "doFind":false,
-                        "label":"CaseStatus"    
-                    },
-                    {
-                        "isExactMatch":false,
-                        "fieldName":"Origin",
-                        "doCreate":true,
-                        "doFind":false,
-                        "label":"CaseOrigin"    
-                    },
-                    {
-                        "isExactMatch":false,
-                        "fieldName":"Response_Channel__c",
-                        "doCreate":true,
-                        "doFind":false,
-                        "label":"CaseRespChannel"   
-                    }
-                ]
-            }, 
-                
-            //Task
-            {
-                "entityName": "Task",
-                "saveToTranscript": "AE_Technical_Task_Id__c",
-                "entityFieldMaps": [
-                    {
-                        "isExactMatch":false,
-                        "fieldName":"Type",
-                        "doCreate":true,
-                        "doFind":false,
-                        "label":"TaskType"  
-                    },
-                    {
-                        "isExactMatch":false,
-                        "fieldName":"Subject",
-                        "doCreate":true,
-                        "doFind":false,
-                        "label":"TaskSubject"  
-                    }
-                    
-                ]
-            }
-            
-            
-        ];
+ <div class="fb-page fb_iframe_widget" data-href="https://www.facebook.com/INPS.PerLaFamiglia/" data-tabs="timeline" data-small-header="true" data-height="350" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="false" fb-xfbml-state="rendered" fb-iframe-plugin-query="adapt_container_width=true&amp;app_id=&amp;container_width=236&amp;height=350&amp;hide_cover=true&amp;href=https%3A%2F%2Fwww.facebook.com%2FINPS.PerLaFamiglia%2F&amp;locale=it_IT&amp;sdk=joey&amp;show_facepile=false&amp;small_header=true&amp;tabs=timeline"><span style="vertical-align: bottom; width: 236px; height: 350px;"><iframe name="f3babf1e5762698" width="1000px" height="350px" data-testid="fb:page Facebook Social Plugin" title="fb:page Facebook Social Plugin" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" src="./INPS - Home Page_files/page.html" style="border: none; visibility: visible; width: 236px; height: 350px;" class=""></iframe></span></div>
+ </div>
+ <div role="tabpanel" class="tab-pane" id="tab-twitter" style="min-height: 200px;">
+ <iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" class="twitter-timeline twitter-timeline-rendered" data-widget-id="profile:INPS_it" title="Cronologia di Twitter" style="position: static; visibility: visible; display: inline-block; width: 300px; height: 350px; padding: 0px; border: none; max-width: 100%; min-width: 180px; margin-top: 0px; margin-bottom: 0px; min-height: 200px;" src="./INPS - Home Page_files/saved_resource.html"></iframe>
+ </div>
+ </div>
+</div>
 
-            embedded_svc.settings.prepopulatedPrechatFields = {
-            FirstName: "Franco",                        //@SOGEI -> Inserire Variabile contenente il Nome dell'utente
-            LastName: "Russo",                          //@SOGEI -> Inserire Variabile contenente il Cognome dell'utente
-            Fiscal_Code__c: "RSSFNC80A01F839D",         //@SOGEI -> Inserire Variabile contenente il CF dell'utente
-            Phone: "081656565",                         //@SOGEI -> Inserire Variabile contenente il Phone dell'utente
-            Email: "fra@libero.it"                      //@SOGEI -> Inserire Variabile contenente l email dell'utente
-        };
 
-       
-        
-	};
 
-	if (!window.embedded_svc) {
-		var s = document.createElement('script');
-		s.setAttribute('src', 'https://inps--clodevmerg.my.salesforce.com/embeddedservice/5.0/esw.min.js');
-		s.onload = function() {
-			initESW(null);
-		};
-		document.body.appendChild(s);
-	} else {
-		initESW('https://service.force.com');
-	}
-</script>
-<!--LRUSSO-->
+ <div class="feedback-tool visible-xs visible-md" style="margin-top:10px">
+ <a class="wide-button wide-button2" href="https://www.inps.it/nuovoportaleinps/default.aspx#modal-feedback" data-toggle="modal">
+ <em class="wide-button__icon fa fa-comment"></em>
+ <span class="wide-button__label">Aiutaci a migliorare questa pagina</span>
+ </a>
+ <a href="https://www.inps.it/nuovoportaleinps/default.aspx#" class="wide-button wide-button2" id="btnJoyride" style="display:block;">
+ <em class="wide-button__icon fa fa-binoculars"></em>
+ <span class="wide-button__label">Scopri come usare il portale</span>
+ </a>
+ </div>
+ </div>
+ </div>
+</div>
+</aside>
+</section>
 
-</body></html>
+<ol id="joyRideTipContent">
+
+
+
+
+
+
+
+
+
+
+
+<li data-id="menu-main" data-options="tipLocation:bottom;tipAnimation:fade" data-next-button="Avanti" class="custom">
+<span class="titleJoyride">
+Area istituzionale</span>
+<p>
+In quest'area sono presenti le voci di menu che ti consentono di accedere alle sezioni che compongono il portale dell'Istituto.</p>
+</li><li data-id="helpLanguage" data-options="tipLocation:top;tipAnimation:fade" data-next-button="Indietro" data-prev-button="Avanti">
+<span class="titleJoyride">
+Seleziona lingua</span>
+<p>
+Selezionando questo pulsante si aprirà un menu a tendina che ti permetterà di selezionare la lingua che preferisci tra quelle disponibili.</p>
+</li><li data-id="helpContatti" data-options="tipLocation:right;tipAnimation:fade" data-next-button="Indietro" data-prev-button="Avanti">
+<span class="titleJoyride">
+I contatti dell'INPS</span>
+<p>
+Accedendo a questa sezione puoi avere informazioni sui canali utilizzati da INPS per essere in contatto con la propria utenza. Inoltre, trovi le FAQ sull'utilizzo del portale e indicazioni su come ottenere e gestire il PIN.</p>
+</li><li data-id="btLogin" data-options="tipLocation:bottom;tipAnimation:fade" data-next-button="Indietro" data-prev-button="Avanti">
+<span class="titleJoyride">
+Entra in MyINPS</span>
+<p>
+Selezionando il pulsante puoi effettuare l'autenticazione per accedere alla tua area riservata. Se non sei già in possesso delle credenziali, puoi utilizzare il link dedicato per scoprire come ottenerle.</p>
+</li><li data-id="helpSearch" data-options="tipLocation:right;tipAnimation:fade" data-next-button="Indietro" data-prev-button="Avanti">
+<span class="titleJoyride">
+Cerca nel portale</span>
+<p>
+Attraverso questo strumento puoi indicare delle parole chiave per trovare i contenuti di tuo interesse all'interno del portale.</p>
+</li><li data-id="helpInEvidenza" data-options="tipLocation:right;tipAnimation:fade" data-next-button="Indietro" data-prev-button="Avanti">
+<span class="titleJoyride">
+Contenuti in evidenza</span>
+<p>
+In quest'area sono presenti i contenuti posti in primo piano dall'Istituto.</p>
+</li><li data-id="CategorieUtenzaLayout1" data-options="tipLocation:top;tipAnimation:fade" data-next-button="Indietro" data-prev-button="Avanti">
+<span class="titleJoyride">
+Navigazione per utenti e temi</span>
+<p>
+In quest'area puoi accedere ai contenuti collegati alle singole categorie di utenza o ai singoli temi di tuo interesse.</p>
+</li><li data-id="helpInterestingForYou" data-options="tipLocation:top;tipAnimation:fade" data-next-button="Indietro" data-prev-button="Avanti">
+<span class="titleJoyride">
+Ti potrebbero interessare</span>
+<p>
+In quest'area puoi consultare i contenuti correlati ai tuoi interessi. </p>
+</li><li data-id="helpMoreUsedServices" data-options="tipLocation:top;tipAnimation:fade" data-next-button="Indietro" data-prev-button="Avanti">
+<span class="titleJoyride">
+Servizi più utilizzati</span>
+<p>
+Qui puoi trovare i servizi più utilizzati dagli altri utenti. </p>
+</li><li data-id="helpHotContents" data-options="tipLocation:right;tipAnimation:fade" data-next-button="Indietro" data-prev-button="Avanti">
+<span class="titleJoyride">
+Accesso rapido</span>
+<p>
+In quest'area sono raccolti i contenuti del portale più condivisi sui social media, i più visti e quelli maggiormente cercati dagli utenti. Il numero dei contenuti visualizzati può essere esteso utilizzando le voci dedicate.</p>
+</li><li data-id="helpSocialStream" data-options="tipLocation:left;tipAnimation:fade" data-next-button="Indietro" data-prev-button="Chiudi">
+<span class="titleJoyride">
+Social stream</span>
+<p>
+In quest'area sono raccolti, in ordine cronologico, i post Facebook e i tweet pubblicati da INPS.</p>
+</li></ol>
+<div id="overlay"></div>
+<div id="divSpinAlCentro" style="position:fixed;top:50%;left:50%;visibility:hidden;background:#ffffff;z-index:2000;">
+
+</div>
+
+<footer id="footer" class="footer" style="visibility:visible">
+ <ol id="InitialJoyRide" style="display:none;"> <li data-id="menu-main" data-options="tipLocation:bottom;tipAnimation:fade" data-next-button="Avanti" class="custom">
+<span class="titleJoyride">
+Area istituzionale</span>
+<p>
+In quest'area sono presenti le voci di menu che ti consentono di accedere alle sezioni che compongono il portale dell'Istituto.</p>
+</li><li data-id="helpLanguage" data-options="tipLocation:top;tipAnimation:fade" data-next-button="Indietro" data-prev-button="Avanti">
+<span class="titleJoyride">
+Seleziona lingua</span>
+<p>
+Selezionando questo pulsante si aprirà un menu a tendina che ti permetterà di selezionare la lingua che preferisci tra quelle disponibili.</p>
+</li><li data-id="helpAssistenza" data-options="tipLocation:top;tipAnimation:fade" data-next-button="Indietro" data-prev-button="Avanti">
+<span class="titleJoyride">
+Accedere ai servizi</span>
+<p>
+Nella sezione "Accedere ai servizi" potrai trovare tutte le informazioni sulle credenziali di autenticazione necessarie per l’accesso ai servizi online.</p>
+</li><li data-id="helpContatti" data-options="tipLocation:right;tipAnimation:fade" data-next-button="Indietro" data-prev-button="Avanti">
+<span class="titleJoyride">
+I contatti dell'INPS</span>
+<p>
+Accedendo a questa sezione puoi avere informazioni sui canali utilizzati da INPS per essere in contatto con la propria utenza. Inoltre, trovi le FAQ sull'utilizzo del portale e indicazioni su come ottenere e gestire il PIN.</p>
+</li><li data-id="btLogin" data-options="tipLocation:bottom;tipAnimation:fade" data-next-button="Indietro" data-prev-button="Avanti">
+<span class="titleJoyride">
+Entra in MyINPS</span>
+<p>
+Selezionando il pulsante puoi effettuare l'autenticazione per accedere alla tua area riservata. Se non sei già in possesso delle credenziali, puoi utilizzare il link dedicato per scoprire come ottenerle.</p>
+</li><li data-id="helpSearch" data-options="tipLocation:right;tipAnimation:fade" data-next-button="Indietro" data-prev-button="Avanti">
+<span class="titleJoyride">
+Cerca nel portale</span>
+<p>
+Attraverso questo strumento puoi indicare delle parole chiave per trovare i contenuti di tuo interesse all'interno del portale.</p>
+</li><li data-id="helpInEvidenza" data-options="tipLocation:right;tipAnimation:fade" data-next-button="Indietro" data-prev-button="Avanti">
+<span class="titleJoyride">
+Contenuti in evidenza</span>
+<p>
+In quest'area sono presenti i contenuti posti in primo piano dall'Istituto.</p>
+</li><li data-id="CategorieUtenzaLayout1" data-options="tipLocation:top;tipAnimation:fade" data-next-button="Indietro" data-prev-button="Avanti">
+<span class="titleJoyride">
+Navigazione per utenti e temi</span>
+<p>
+In quest'area puoi accedere ai contenuti collegati alle singole categorie di utenza o ai singoli temi di tuo interesse.</p>
+</li><li data-id="helpInterestingForYou" data-options="tipLocation:top;tipAnimation:fade" data-next-button="Indietro" data-prev-button="Avanti">
+<span class="titleJoyride">
+Ti potrebbero interessare</span>
+<p>
+In quest'area puoi consultare i contenuti correlati ai tuoi interessi. </p>
+</li><li data-id="helpMoreUsedServices" data-options="tipLocation:top;tipAnimation:fade" data-next-button="Indietro" data-prev-button="Avanti">
+<span class="titleJoyride">
+Servizi più utilizzati</span>
+<p>
+Qui puoi trovare i servizi più utilizzati dagli altri utenti. </p>
+</li><li data-id="helpHotContents" data-options="tipLocation:right;tipAnimation:fade" data-next-button="Indietro" data-prev-button="Avanti">
+<span class="titleJoyride">
+Accesso rapido</span>
+<p>
+In quest'area sono raccolti i contenuti del portale più condivisi sui social media, i più visti e quelli maggiormente cercati dagli utenti. Il numero dei contenuti visualizzati può essere esteso utilizzando le voci dedicate.</p>
+</li><li data-id="helpSocialStream" data-options="tipLocation:left;tipAnimation:fade" data-next-button="Indietro" data-prev-button="Chiudi">
+<span class="titleJoyride">
+Social stream</span>
+<p>
+In quest'area sono raccolti, in ordine cronologico, i post Facebook e i tweet pubblicati da INPS.</p>
+</li></ol>
+ <div class="container">
+ <div class="hidden-xs visible-md col-md-1 col-sm-2 col-lg-1">
+ <a href="https://www.inps.it/nuovoportaleinps/default.aspx"><img src="./INPS - Home Page_files/logo-inps-neg(1).png" class="logo" alt="INPS" title="Torna alla Home"></a>
+ </div>
+
+ <div class="visible-lg col-lg-11 col-md-11 col-md-push-1 col-lg-push-1 col-lg-10-colonne">
+ <div class="col-lg-2 col-md-2">
+<div class="visible-xs hidden-md pull-right"><img src="./INPS - Home Page_files/logo-inps-neg(1).png" class="logo" alt="INPS"></div>
+<h2 class="">Istituto Nazionale Previdenza Sociale </h2>
+<ul>
+<li>
+<span>P.IVA 02121151001 </span>
+</li>
+<li>
+<span><em>Sede Legale: <br>Via Ciro il Grande, 21 <br>00144 Roma</em> </span>
+</li>
+<li>
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx?iMenu=24" target="_self"><span class="footer-bold">Contatti </span></a>
+</li>
+<li>
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx?iidlink=88" target="_self"><span class="footer-bold">PEC </span></a>
+</li>
+<li><a class="FD_socialLink" title="Facebook" href="https://www.facebook.com/INPS.PerLaFamiglia/"><img src="./INPS - Home Page_files/logo-facebook-footer.jpg" alt="Facebook"></a><a class="FD_socialLink" title="Twitter" href="http://www.twitter.com/Inps_it"><img src="./INPS - Home Page_files/logo-twitter-footer.jpg" alt="Twitter"></a><a class="FD_socialLink" title="YouTube" href="https://www.youtube.com/user/INPSComunica"><img src="./INPS - Home Page_files/logo-youtube-footer.jpg" alt="YouTube"></a><a class="FD_socialLink" title="LinkedIn" href="https://www.linkedin.com/company/inps-official/"><img src="./INPS - Home Page_files/logo-linkedin-footer.jpg" alt="LinkedIn"></a><a class="FD_socialLink" title="Instagram" href="https://www.instagram.com/inps_social/"><img src="./INPS - Home Page_files/logo-instagram-footer.jpg" alt="Instagram"></a></li>
+</ul>
+</div>
+<div class="col-lg-2 col-md-2">
+
+<h2 class="bold">L'INPS </h2>
+<ul>
+<li>
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx?iMenu=11" target="_self"><span>L'Istituto </span></a>
+</li>
+<li>
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx?iMenu=10" target="_self"><span>INPS Comunica </span></a>
+</li>
+<li>
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx?iMenu=26" target="_self"><span>Archivio </span></a>
+</li>
+<li>
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx?smappa=yes" target="_self"><span>Mappa del sito </span></a>
+</li>
+<li>
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx?iMenu=98" target="_self"><span>RSS </span></a>
+</li>
+</ul>
+</div>
+<div class="col-lg-2 col-md-2">
+
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx?iMenu=101" target="_self" class="FD_headerWithURL"><h2 class="">Amministrazione Trasparente </h2></a>
+<ul>
+</ul>
+<h2 class="">Avvisi, Bandi e Fatturazione </h2>
+<ul>
+<li>
+<a href="https://www.inps.it/Welfare/default.aspx?startpage=avvisi" target="_self"><span>Avvisi </span></a>
+</li>
+<li>
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx?sID=%3b0%3b46070%3b46106%3b&amp;lastMenu=46106&amp;iMenu=13&amp;p4=2" target="_self"><span>Concorsi </span></a>
+</li>
+<li>
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx?sID=%3b0%3b46241%3b&amp;lastMenu=46241&amp;iMenu=13&amp;p4=2" target="_self"><span>Fatturazione elettronica </span></a>
+</li>
+<li>
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx?sID=%3b0%3b46241%3b46236%3b&amp;lastMenu=46236&amp;iMenu=13&amp;p4=2" target="_self"><span>Fornitori e Professionisti </span></a>
+</li>
+<li>
+<a href="https://www.inps.it/GareOnlineInt/default.aspx?startpage=gare" target="_self"><span>Gare </span></a>
+</li>
+<li>
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx?sID=%3b0%3b46070%3b46240%3b&amp;lastMenu=46240&amp;iMenu=13&amp;p4=2" target="_self"><span>Aste immobiliari INPS </span></a>
+</li>
+<li>
+<a href="https://www.inps.it/Welfare/default.aspx?startpage=welfare" target="_self"><span>Welfare, assistenza e mutualità </span></a>
+</li>
+</ul>
+</div>
+<div class="col-lg-2 col-md-2">
+
+<h2 class="">Prestazioni e servizi </h2>
+<ul>
+<li>
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx?iprestazioni=91" target="_self"><span>Esplora il sito </span></a>
+</li>
+<li>
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx?iprestazioni=92" target="_self"><span>Naviga per utente </span></a>
+</li>
+<li>
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx?iprestazioni=93" target="_self"><span>Naviga per tema </span></a>
+</li>
+<li>
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx?iprestazioni=97" target="_self"><span>Prestazioni </span></a>
+</li>
+<li>
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx?iprestazioni=94" target="_self"><span>Servizi </span></a>
+</li>
+<li>
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx?iprestazioni=95" target="_self"><span>Moduli </span></a>
+</li>
+<li>
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx?iprestazioni=96" target="_self"><span>Software </span></a>
+</li>
+<li>
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx?iprestazioni=98" target="_self"><span>App mobile </span></a>
+</li>
+</ul>
+</div>
+<div class="col-lg-2 col-md-2">
+
+<h2 class="">Dati, ricerche e bilanci </h2>
+<ul>
+<li>
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx?sID=%3b0%3b46306%3b&amp;lastMenu=46306&amp;iMenu=12&amp;p4=2" target="_self"><span>Bilanci e rendiconti </span></a>
+</li>
+<li>
+<a href="https://www.inps.it/OpenData/default.aspx?iidlink=103" target="_self"><span>Open Data </span></a>
+</li>
+<li>
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx?iidlink=105" target="_self"><span>Rapporti Annuali </span></a>
+</li>
+<li>
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx?sID=%3b0%3b46437%3b&amp;lastMenu=46437&amp;iMenu=12&amp;p4=2" target="_self"><span>Osservatori statistici e altre statistiche </span></a>
+</li>
+</ul>
+<h2 class="">Note legali </h2>
+<ul>
+<li>
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx?iMenu=113" target="_self"><span>Privacy </span></a>
+</li>
+<li>
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx?sID=;0;46124;&amp;lastMenu=46124&amp;iMenu=13&amp;p4=2" target="_self"><span>Atti di notifica </span></a>
+</li>
+<li>
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx?sID=0%3b&amp;iMenu=118" target="_self"><span>Dichiarazioni di accessibilità </span></a>
+</li>
+</ul>
+</div>
+
+ </div>
+ <div class="visible-md hidden-lg col-md-11">
+ <div class="col-md-4">
+<h2 class="">Istituto Nazionale Previdenza Sociale </h2>
+<ul>
+<li>
+<span>P.IVA 02121151001 </span>
+</li>
+<li>
+<span><em>Sede Legale: <br>Via Ciro il Grande, 21 <br>00144 Roma</em> </span>
+</li>
+<li>
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx?iMenu=24" target="_self"><span class="footer-bold">Contatti </span></a>
+</li>
+<li>
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx?iidlink=88" target="_self"><span class="footer-bold">PEC </span></a>
+</li>
+<li><a class="FD_socialLink" title="Facebook" href="https://www.facebook.com/INPS.PerLaFamiglia/"><img src="./INPS - Home Page_files/logo-facebook-footer.jpg" alt="Facebook"></a><a class="FD_socialLink" title="Twitter" href="http://www.twitter.com/Inps_it"><img src="./INPS - Home Page_files/logo-twitter-footer.jpg" alt="Twitter"></a><a class="FD_socialLink" title="YouTube" href="https://www.youtube.com/user/INPSComunica"><img src="./INPS - Home Page_files/logo-youtube-footer.jpg" alt="YouTube"></a><a class="FD_socialLink" title="LinkedIn" href="https://www.linkedin.com/company/inps-official/"><img src="./INPS - Home Page_files/logo-linkedin-footer.jpg" alt="LinkedIn"></a><a class="FD_socialLink" title="Instagram" href="https://www.instagram.com/inps_social/"><img src="./INPS - Home Page_files/logo-instagram-footer.jpg" alt="Instagram"></a></li>
+</ul>
+</div>
+<div class="col-md-4">
+<h2 class="bold">L'INPS </h2>
+<ul>
+<li>
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx?iMenu=11" target="_self"><span>L'Istituto </span></a>
+</li>
+<li>
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx?iMenu=10" target="_self"><span>INPS Comunica </span></a>
+</li>
+<li>
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx?iMenu=26" target="_self"><span>Archivio </span></a>
+</li>
+<li>
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx?smappa=yes" target="_self"><span>Mappa del sito </span></a>
+</li>
+<li>
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx?iMenu=98" target="_self"><span>RSS </span></a>
+</li>
+</ul>
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx?iMenu=101" target="_self" class="FD_headerWithURL"><h2 class="">Amministrazione Trasparente </h2></a>
+<ul>
+</ul>
+<h2 class="">Avvisi, Bandi e Fatturazione </h2>
+<ul>
+<li>
+<a href="https://www.inps.it/Welfare/default.aspx?startpage=avvisi" target="_self"><span>Avvisi </span></a>
+</li>
+<li>
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx?sID=%3b0%3b46070%3b46106%3b&amp;lastMenu=46106&amp;iMenu=13&amp;p4=2" target="_self"><span>Concorsi </span></a>
+</li>
+<li>
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx?sID=%3b0%3b46241%3b&amp;lastMenu=46241&amp;iMenu=13&amp;p4=2" target="_self"><span>Fatturazione elettronica </span></a>
+</li>
+<li>
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx?sID=%3b0%3b46241%3b46236%3b&amp;lastMenu=46236&amp;iMenu=13&amp;p4=2" target="_self"><span>Fornitori e Professionisti </span></a>
+</li>
+<li>
+<a href="https://www.inps.it/GareOnlineInt/default.aspx?startpage=gare" target="_self"><span>Gare </span></a>
+</li>
+<li>
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx?sID=%3b0%3b46070%3b46240%3b&amp;lastMenu=46240&amp;iMenu=13&amp;p4=2" target="_self"><span>Aste immobiliari INPS </span></a>
+</li>
+<li>
+<a href="https://www.inps.it/Welfare/default.aspx?startpage=welfare" target="_self"><span>Welfare, assistenza e mutualità </span></a>
+</li>
+</ul>
+</div>
+<div class="col-md-4">
+<h2 class="">Prestazioni e servizi </h2>
+<ul>
+<li>
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx?iprestazioni=91" target="_self"><span>Esplora il sito </span></a>
+</li>
+<li>
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx?iprestazioni=92" target="_self"><span>Naviga per utente </span></a>
+</li>
+<li>
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx?iprestazioni=93" target="_self"><span>Naviga per tema </span></a>
+</li>
+<li>
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx?iprestazioni=97" target="_self"><span>Prestazioni </span></a>
+</li>
+<li>
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx?iprestazioni=94" target="_self"><span>Servizi </span></a>
+</li>
+<li>
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx?iprestazioni=95" target="_self"><span>Moduli </span></a>
+</li>
+<li>
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx?iprestazioni=96" target="_self"><span>Software </span></a>
+</li>
+<li>
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx?iprestazioni=98" target="_self"><span>App mobile </span></a>
+</li>
+</ul>
+<h2 class="">Dati, ricerche e bilanci </h2>
+<ul>
+<li>
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx?sID=%3b0%3b46306%3b&amp;lastMenu=46306&amp;iMenu=12&amp;p4=2" target="_self"><span>Bilanci e rendiconti </span></a>
+</li>
+<li>
+<a href="https://www.inps.it/OpenData/default.aspx?iidlink=103" target="_self"><span>Open Data </span></a>
+</li>
+<li>
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx?iidlink=105" target="_self"><span>Rapporti Annuali </span></a>
+</li>
+<li>
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx?sID=%3b0%3b46437%3b&amp;lastMenu=46437&amp;iMenu=12&amp;p4=2" target="_self"><span>Osservatori statistici e altre statistiche </span></a>
+</li>
+</ul>
+<h2 class="">Note legali </h2>
+<ul>
+<li>
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx?iMenu=113" target="_self"><span>Privacy </span></a>
+</li>
+<li>
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx?sID=;0;46124;&amp;lastMenu=46124&amp;iMenu=13&amp;p4=2" target="_self"><span>Atti di notifica </span></a>
+</li>
+<li>
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx?sID=0%3b&amp;iMenu=118" target="_self"><span>Dichiarazioni di accessibilità </span></a>
+</li>
+</ul>
+</div>
+
+ </div>
+
+ <div class="visible-xs visible-sm hidden-md hidden-lg col-lg-8">
+ <div class="col-sm-12" style="padding-left:  0;">
+<div class="visible-xs visible-sm hidden-md pull-right"><img src="./INPS - Home Page_files/logo-inps-neg(1).png" class="logo" alt="INPS"></div>
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx#" onclick="return false;" title="" target="_self" class="FD_headerNo_URL"><h2 class="">Istituto Nazionale Previdenza Sociale </h2></a>
+<ul>
+<li>
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx#" onclick="return false;" title="" class=" FD_headerNo_URL" target="_self"> P.IVA 02121151001</a>
+</li>
+<li>
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx#" onclick="return false;" title="" class=" FD_headerNo_URL" target="_blank"> <em>Sede Legale: <br>Via Ciro il Grande, 21 <br>00144 Roma</em></a>
+</li>
+<li>
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx?iMenu=24" title="" class="footer-bold " target="_self"> Contatti</a>
+</li>
+<li>
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx?iidlink=88" title="" class="footer-bold " target="_self"> PEC</a>
+</li>
+<li><a class="FD_socialLink" title="Facebook" href="https://www.facebook.com/INPS.PerLaFamiglia/"><img src="./INPS - Home Page_files/logo-facebook-footer.jpg" alt="Facebook"></a><a class="FD_socialLink" title="Twitter" href="http://www.twitter.com/Inps_it"><img src="./INPS - Home Page_files/logo-twitter-footer.jpg" alt="Twitter"></a><a class="FD_socialLink" title="YouTube" href="https://www.youtube.com/user/INPSComunica"><img src="./INPS - Home Page_files/logo-youtube-footer.jpg" alt="YouTube"></a><a class="FD_socialLink" title="LinkedIn" href="https://www.linkedin.com/company/inps-official/"><img src="./INPS - Home Page_files/logo-linkedin-footer.jpg" alt="LinkedIn"></a><a class="FD_socialLink" title="Instagram" href="https://www.instagram.com/inps_social/"><img src="./INPS - Home Page_files/logo-instagram-footer.jpg" alt="Instagram"></a></li>
+</ul>
+</div>
+<div class="col-sm-12 accordation">
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx#" onclick="return false;" title="" target="_blank" class="FD_headerNo_URL"><h2 class="bold">L'INPS  <span class="">+</span></h2></a>
+<ul>
+<li>
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx?iMenu=11" title="" class=" " target="_self"> L'Istituto</a>
+</li>
+<li>
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx?iMenu=10" title="" class=" " target="_self"> INPS Comunica</a>
+</li>
+<li>
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx?iMenu=26" title="" class=" " target="_self"> Archivio</a>
+</li>
+<li>
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx?smappa=yes" title="" class=" " target="_self"> Mappa del sito</a>
+</li>
+<li>
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx?iMenu=98" title="" class=" " target="_self"> RSS</a>
+</li>
+</ul>
+</div>
+<div class="col-sm-12 FD_linkFooterMobile">
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx?iMenu=101" title="" target="_self" class="FD_headerWithURL"><h2 class="">Amministrazione Trasparente  </h2></a>
+<ul>
+</ul>
+</div>
+<div class="col-sm-12 accordation">
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx#" onclick="return false;" title="" target="_self" class="FD_headerNo_URL"><h2 class="">Prestazioni e servizi  <span class="">+</span></h2></a>
+<ul>
+<li>
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx?iprestazioni=91" title="" class=" " target="_self"> Esplora il sito</a>
+</li>
+<li>
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx?iprestazioni=92" title="" class=" " target="_self"> Naviga per utente</a>
+</li>
+<li>
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx?iprestazioni=93" title="" class=" " target="_self"> Naviga per tema</a>
+</li>
+<li>
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx?iprestazioni=97" title="" class=" " target="_self"> Prestazioni</a>
+</li>
+<li>
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx?iprestazioni=94" title="" class=" " target="_self"> Servizi</a>
+</li>
+<li>
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx?iprestazioni=95" title="" class=" " target="_self"> Moduli</a>
+</li>
+<li>
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx?iprestazioni=96" title="" class=" " target="_self"> Software</a>
+</li>
+<li>
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx?iprestazioni=98" title="" class=" " target="_self"> App mobile</a>
+</li>
+</ul>
+</div>
+<div class="col-sm-12 accordation">
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx#" onclick="return false;" title="" target="_self" class="FD_headerNo_URL"><h2 class="">Dati, ricerche e bilanci  <span class="">+</span></h2></a>
+<ul>
+<li>
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx?sID=%3b0%3b46306%3b&amp;lastMenu=46306&amp;iMenu=12&amp;p4=2" title="" class=" " target="_self"> Bilanci e rendiconti</a>
+</li>
+<li>
+<a href="https://www.inps.it/OpenData/default.aspx?iidlink=103" title="" class=" " target="_self"> Open Data</a>
+</li>
+<li>
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx?iidlink=105" title="" class=" " target="_self"> Rapporti Annuali</a>
+</li>
+<li>
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx?sID=%3b0%3b46437%3b&amp;lastMenu=46437&amp;iMenu=12&amp;p4=2" title="" class=" " target="_self"> Osservatori statistici e altre statistiche</a>
+</li>
+</ul>
+</div>
+<div class="col-sm-12 accordation">
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx#" onclick="return false;" title="" target="_self" class="FD_headerNo_URL"><h2 class="">Note legali  <span class="">+</span></h2></a>
+<ul>
+<li>
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx?iMenu=113" title="" class=" " target="_self"> Privacy</a>
+</li>
+<li>
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx?sID=;0;46124;&amp;lastMenu=46124&amp;iMenu=13&amp;p4=2" title="" class=" " target="_self"> Atti di notifica</a>
+</li>
+<li>
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx?sID=0%3b&amp;iMenu=118" title="" class=" " target="_self"> Dichiarazioni di accessibilità</a>
+</li>
+</ul>
+</div>
+<div class="col-sm-12 accordation">
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx#" onclick="return false;" title="" target="_self" class="FD_headerNo_URL"><h2 class="">Avvisi, Bandi e Fatturazione  <span class="">+</span></h2></a>
+<ul>
+<li>
+<a href="https://www.inps.it/Welfare/default.aspx?startpage=avvisi" title="" class=" " target="_self"> Avvisi</a>
+</li>
+<li>
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx?sID=%3b0%3b46070%3b46106%3b&amp;lastMenu=46106&amp;iMenu=13&amp;p4=2" title="" class=" " target="_self"> Concorsi</a>
+</li>
+<li>
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx?sID=%3b0%3b46241%3b&amp;lastMenu=46241&amp;iMenu=13&amp;p4=2" title="" class=" " target="_self"> Fatturazione elettronica</a>
+</li>
+<li>
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx?sID=%3b0%3b46241%3b46236%3b&amp;lastMenu=46236&amp;iMenu=13&amp;p4=2" title="" class=" " target="_self"> Fornitori e Professionisti</a>
+</li>
+<li>
+<a href="https://www.inps.it/GareOnlineInt/default.aspx?startpage=gare" title="" class=" " target="_self"> Gare</a>
+</li>
+<li>
+<a href="https://www.inps.it/nuovoportaleinps/default.aspx?sID=%3b0%3b46070%3b46240%3b&amp;lastMenu=46240&amp;iMenu=13&amp;p4=2" title="" class=" " target="_self"> Aste immobiliari INPS</a>
+</li>
+<li>
+<a href="https://www.inps.it/Welfare/default.aspx?startpage=welfare" title="" class=" " target="_self"> Welfare, assistenza e mutualità</a>
+</li>
+</ul>
+</div>
+
+ </div>
+ </div>
+ <div class="footer__bottom">
+ <div class="footeruno">
+ <img src="./INPS - Home Page_files/img-istituzionale-footer.png" height="40" width="40" alt=""> www.inps.gov.it
+ </div>
+ <div class="footerdue">© 2010-2017 Istituto Nazionale Previdenza Sociale.</div>
+ <div class="footertre">
+ Tutti i diritti riservati.
+ </div>
+ </div>
+
+ 
+ 
+
+</footer>
+<div id="modal-notifica" class="modal fade modal-vertical-centered" role="dialog">
+ <form id="notifiche-form" method="POST" style="background-color:transparent">
+ <div class="modal-dialog ">
+ <div class="modal-content large">
+ <div class="modal-header">
+ <button type="button" aria-label="Chiudi" class="close" data-dismiss="modal">×</button>
+ <h4 id="h4TitleNotif" class="modal-title"><em class="fa fa-bell-o"></em>&nbsp;<label id="labelTitleNotif"></label> </h4>
+ </div>
+ <div class="modal-intro">
+ <h3 id="h3Title">&nbsp;</h3>
+ <span id="spanDate" class="date"> </span>
+ </div>
+ <div class="modal-body modalDim" style="max-height:512.4px;  overflow-y:auto;">
+ <p id="pTesto"> </p>
+ </div>
+ <div class="modal-footer">
+ <div class="btn-group">
+ <button id="segna-notifica-letta" type="submit" name="btSubmit" value="1" class="btn btn-primary">Segna </button>
+ <button id="rimuovi-notifica" type="submit" name="btSubmit2" value="2" class="btn btn-primary">Cancella Avviso</button>
+ </div>
+ </div>
+ </div>
+
+ </div>
+ <input type="hidden" id="Remove-Notifiy" name="Remove-Notifiy">
+ </form>
+</div>
+
+<div id="modal-video" class="modal fade modal-vertical-centered" role="dialog">
+ <div class="modal-dialog">
+ <div class="modal-content large">
+ <div class="modal-header">
+ <a href="https://www.inps.it/nuovoportaleinps/default.aspx#" tabindex="0" title="Video skip" onfocus="javascript:document.getElementById(&#39;closeModalVideo&#39;).focus();" id="btnVideoSkip2"></a>
+ <button type="button" id="closeVideo" data-event="close-video" aria-label="Chiudi" class="close" data-dismiss="modal">×</button>
+ <h4 class="modal-title"><em class="fa fa-video-camera"></em>&nbsp;&nbsp;&nbsp;Video</h4>
+ </div>
+ <div class="modal-body">
+ <div class="player">
+ <div id="player-video-article-default"></div>
+ </div>
+ </div>
+ <div class="modal-footer">
+ <div class="btn-group">
+ <button id="closeModalVideo" data-event="close-video" aria-label="Chiudi" type="submit" class="btn btn-primary" data-dismiss="modal">Chiudi</button>
+ <a href="https://www.inps.it/nuovoportaleinps/default.aspx#" tabindex="0" title="Video skip" onfocus="javascript:document.getElementById(&#39;closeVideo&#39;).focus();" id="btnVideoSkip"></a>
+ </div>
+ </div>
+ </div>
+ </div>
+</div>
+
+<!-- Messaggio nella modale -->
+
+
+<!-- Scadenza nella modale -->
+<div id="eventDetail" class="modal fade modal-vertical-centered in" role="dialog">
+ <div class="modal-dialog ">
+ <div class="modal-content large">
+ <div class="modal-header">
+ <button type="button" aria-label="Chiudi" class="close" data-dismiss="modal">×</button>
+ <h4 class="modal-title"><em class="fa fa-calendar"></em> Scadenza da <span id="eventAuthor"></span></h4>
+ </div>
+
+ <div class="modal-intro">
+ <h3 id="eventTitle">&nbsp;</h3>
+ <span id="eventDate" class="date"></span>
+ </div>
+
+ <div class="modal-body modalDim" style="max-height:512.4px;  overflow-y:auto;">
+ <p id="eventText"></p>
+ </div>
+ <form id="scadenze-form" method="POST" style="background-color:transparent">
+ <div class="modal-footer">
+ <div class="btn-group">
+ <button id="segna-scadenza-letta" type="submit" name="segna-scadenza-letta" class="btn btn-primary">Segna come letta</button>
+ <button id="rimuovi-scadenza" type="submit" name="rimuovi-scadenza" class="btn btn-primary">Cancella Scadenza</button>
+ </div>
+ </div>
+ </form>
+ </div>
+ </div>
+</div>
+
+<div id="modal-feedback" class="modal scrollable fade modal-vertical-centered" role="dialog">
+
+ <div class="modal-dialog">
+ <div class="modal-content large">
+
+ <form class="modal-form" name="feedback_form" method="post" enctype="multipart/form-data" action="https://www.inps.it/nuovoportaleinps/default.aspx">
+ <input type="hidden" name="itemDir" id="ItemDir" value="">
+ <input type="hidden" name="iStatoPagina" id="iStatoPagina" value="1">
+ <input type="hidden" name="insfeedb" id="insfeedb" value="true">
+ <input type="hidden" name="fbbreadcrumb" id="fbbreadcrumb" value="NPI">
+ <input type="hidden" name="fbaggiunta" id="fbaggiunta" value="">
+ <input type="hidden" name="refreshcaptcha" id="refreshcaptcha" value="false">
+ <input type="hidden" name="nfsm" value="f32a54d0-f11b-4a33-b7af-b3410262af69">
+ <input type="hidden" name="securitycode" id="securitycode" value="rmP1k2p5kj0=">
+
+ <div class="modal-header">
+ <a href="https://www.inps.it/nuovoportaleinps/default.aspx#" tabindex="0" title="Feedback skip" onfocus="javascript:document.getElementById(&#39;btnFeedback&#39;).focus();" id="btnFeedbackSkip2"></a> 
+ <button type="button" tabindex="0" title="chiudi" id="closeFeedback" aria-label="Chiudi" class="close" data-dismiss="modal">×</button>
+ <h4 class="modal-title"><em class="fa fa-comment"></em> Feedback</h4>
+ </div>
+
+ <div class="modal-intro">
+ <span class="h3Aiutaci">Aiutaci a migliorare questa pagina</span>
+ </div>
+
+ <!--<br />-->
+
+ <div id="divMessageAiutaMigliorarePagina" class="notice-box expired distance-to-top" style="display: none;">
+ <div class="icon">
+ <em class="fa fa-exclamation-triangle"></em>
+ </div>
+ <div class="text">
+ <span id="spanMessage">Attenzione! Per esprimere la tua opinione devi compilare i campi obbligatori evidenziati in rosso.</span>
+ </div>
+ </div>
+ 
+ <div class="modal-body modalDim" id="feedback_body" style="max-height:512.4px;  overflow-y:auto;">
+ <fieldset>
+ <legend>Hai trovato quello che cercavi?</legend>
+ <label class="radio-inline" for="trovato1">
+ <input type="radio" name="trovato" tabindex="0" id="trovato1" aria-label="hai trovato quello che cercavi - risposta SI" value="1">
+ 
+ Sì
+ </label>
+ 
+ <label class="radio-inline" for="trovato2">
+ <input type="radio" name="trovato" tabindex="0" id="trovato2" aria-label="hai trovato quello che cercavi - risposta NO" value="2">
+ No
+ </label>
+ 
+ <label class="radio-inline" for="trovato3">
+ <input type="radio" name="trovato" tabindex="0" id="trovato3" aria-label="hai trovato quello che cercavi - risposta IN PARTE" value="3">
+ In parte
+ </label>
+ </fieldset>
+
+ <fieldset> 
+ <legend>Il contenuto ti è sembrato</legend>
+ <div class="row">
+ <div class=" col-sm-4">
+ <div class="row">
+ <div class="col-xs-6" id="rating_chiaro">Chiaro</div>
+ <div class="col-xs-6"> 
+ <div class="ratingcontrol-target" data-name="chiaro" id="gruppo-chiaro" style="cursor: pointer;"><a href="javascript:void(0);" title="0" tabindex="0" data-alt="1" aria-label="Il contenuto ti è sembrato chiaro? voto 1 su 5" alt="1" class="ratingcontrol-star-off-png"></a>&nbsp;<a href="javascript:void(0);" title="1" tabindex="0" data-alt="2" aria-label="Il contenuto ti è sembrato chiaro? voto 2 su 5" alt="2" class="ratingcontrol-star-off-png"></a>&nbsp;<a href="javascript:void(0);" title="2" tabindex="0" data-alt="3" aria-label="Il contenuto ti è sembrato chiaro? voto 3 su 5" alt="3" class="ratingcontrol-star-off-png"></a>&nbsp;<a href="javascript:void(0);" title="3" tabindex="0" data-alt="4" aria-label="Il contenuto ti è sembrato chiaro? voto 4 su 5" alt="4" class="ratingcontrol-star-off-png"></a>&nbsp;<a href="javascript:void(0);" title="4" tabindex="0" data-alt="5" aria-label="Il contenuto ti è sembrato chiaro? voto 5 su 5" alt="5" class="ratingcontrol-star-off-png"></a><input name="score" type="hidden"></div> 
+ <input id="chiaro" title="chiaro" name="ratingchiaro" value="0" type="number" class="hidden">
+ </div>
+ <div class="col-xs-6" id="rating_completo">Completo</div>
+ <div class="col-xs-6"> 
+ <div class="ratingcontrol-target" data-name="completo" id="gruppo-completo" style="cursor: pointer;"><a href="javascript:void(0);" title="0" tabindex="0" data-alt="1" aria-label="Il contenuto ti è sembrato completo? voto 1 su 5" alt="1" class="ratingcontrol-star-off-png"></a>&nbsp;<a href="javascript:void(0);" title="1" tabindex="0" data-alt="2" aria-label="Il contenuto ti è sembrato completo? voto 2 su 5" alt="2" class="ratingcontrol-star-off-png"></a>&nbsp;<a href="javascript:void(0);" title="2" tabindex="0" data-alt="3" aria-label="Il contenuto ti è sembrato completo? voto 3 su 5" alt="3" class="ratingcontrol-star-off-png"></a>&nbsp;<a href="javascript:void(0);" title="3" tabindex="0" data-alt="4" aria-label="Il contenuto ti è sembrato completo? voto 4 su 5" alt="4" class="ratingcontrol-star-off-png"></a>&nbsp;<a href="javascript:void(0);" title="4" tabindex="0" data-alt="5" aria-label="Il contenuto ti è sembrato completo? voto 5 su 5" alt="5" class="ratingcontrol-star-off-png"></a><input name="score" type="hidden"></div> 
+ <input id="completo" title="completo" name="ratingcompleto" value="0" type="number" class="hidden">
+ </div>
+ </div>
+ </div>
+ 
+ <div class="col-sm-offset-2 col-sm-4">
+ <div class="row">
+ <div class="col-xs-6" id="rating_aggiornato">Aggiornato</div>
+ <div class="col-xs-6"> 
+ <div class="ratingcontrol-target" data-name="aggiornato" id="gruppo-aggiornato" style="cursor: pointer;"><a href="javascript:void(0);" title="0" tabindex="0" data-alt="1" aria-label="Il contenuto ti è sembrato aggiornato? voto 1 su 5" alt="1" class="ratingcontrol-star-off-png"></a>&nbsp;<a href="javascript:void(0);" title="1" tabindex="0" data-alt="2" aria-label="Il contenuto ti è sembrato aggiornato? voto 2 su 5" alt="2" class="ratingcontrol-star-off-png"></a>&nbsp;<a href="javascript:void(0);" title="2" tabindex="0" data-alt="3" aria-label="Il contenuto ti è sembrato aggiornato? voto 3 su 5" alt="3" class="ratingcontrol-star-off-png"></a>&nbsp;<a href="javascript:void(0);" title="3" tabindex="0" data-alt="4" aria-label="Il contenuto ti è sembrato aggiornato? voto 4 su 5" alt="4" class="ratingcontrol-star-off-png"></a>&nbsp;<a href="javascript:void(0);" title="4" tabindex="0" data-alt="5" aria-label="Il contenuto ti è sembrato aggiornato? voto 5 su 5" alt="5" class="ratingcontrol-star-off-png"></a><input name="score" type="hidden"></div> 
+ <input id="aggiornato" title="Aggiornato" name="ratingaggiornato" value="0" class="hidden">
+ </div>
+ <div class="col-xs-6" id="rating_facile">Facile da trovare</div>
+ <div class="col-xs-6"> 
+ <div class="ratingcontrol-target" data-name="facile da trovare" id="gruppo-facile" style="cursor: pointer;"><a href="javascript:void(0);" title="0" tabindex="0" data-alt="1" aria-label="Il contenuto ti è sembrato facile da trovare? voto 1 su 5" alt="1" class="ratingcontrol-star-off-png"></a>&nbsp;<a href="javascript:void(0);" title="1" tabindex="0" data-alt="2" aria-label="Il contenuto ti è sembrato facile da trovare? voto 2 su 5" alt="2" class="ratingcontrol-star-off-png"></a>&nbsp;<a href="javascript:void(0);" title="2" tabindex="0" data-alt="3" aria-label="Il contenuto ti è sembrato facile da trovare? voto 3 su 5" alt="3" class="ratingcontrol-star-off-png"></a>&nbsp;<a href="javascript:void(0);" title="3" tabindex="0" data-alt="4" aria-label="Il contenuto ti è sembrato facile da trovare? voto 4 su 5" alt="4" class="ratingcontrol-star-off-png"></a>&nbsp;<a href="javascript:void(0);" title="4" tabindex="0" data-alt="5" aria-label="Il contenuto ti è sembrato facile da trovare? voto 5 su 5" alt="5" class="ratingcontrol-star-off-png"></a><input name="score" type="hidden"></div> 
+ <input id="facile" title="Facile da trovare" name="ratingfacile" value="0" class="hidden">
+ </div>
+ </div>
+ </div> 
+ </div>
+ </fieldset>
+
+ <fieldset>
+ <legend>Come possiamo migliorarlo?
+ <label for="testoFeedback"><span style="visibility:hidden">testo</span></label>
+ </legend>
+ 
+ 
+ <textarea class="form-control" name="testoFeedback" rows="3" aria-label="Come possiamo migliorarlo? Campo testo" id="testoFeedback"></textarea>
+ 
+ </fieldset>
+ 
+ <div id="security" class="recaptcha">
+ <label id="label-for-security-check" for="securitycheck"><span>Verifica di sicurezza</span></label>
+ <br>
+ 
+ <img src="./INPS - Home Page_files/generaCaptcha.aspx" alt="Se non riesci a leggere questo codice di verifica, digita questo codice, senza tenere in considerazione gli * : 7*e*6*9*" title="Se non riesci a leggere questo codice di verifica, digita questo codice, senza tenere in considerazione gli * : 7*e*6*9*">
+ 
+ <input type="text" id="securitycheck" name="securitycheck" aria-label="Se non riesci a leggere questo codice di verifica, digita questo codice, senza tenere in considerazione gli * : 7*e*6*9*" title="Se non riesci a leggere questo codice di verifica, digita questo codice, senza tenere in considerazione gli * : 7*e*6*9*">
+ 
+
+ </div>
+
+ <div id="honeypotsome-div" class="invisible">
+ If you see this, leave this form field blank 
+ and invest in CSS support.
+ <label for="honeypot"><span style="visibility:hidden">Verifica:</span></label>
+ <input type="text" name="captcha" id="honeypot" value="blabla">
+ </div>
+ </div>
+
+ <div class="modal-footer"> 
+ <div class="btn-group"> 
+ <button type="submit" class="btn btn-primary" tabindex="0" onclick="refreshCaptcha()" id="rigeneracapthaNpi">Rigenera codice</button>&nbsp;
+ <button type="submit" class="btn btn-primary" tabindex="0" style="padding: 0.5em 1.5em;" onclick="return validateFeedbackForm(feedback_form)" id="btnFeedback">Invia</button> 
+ <a href="https://www.inps.it/nuovoportaleinps/default.aspx#" tabindex="0" title="Feedback skip" onfocus="javascript:document.getElementById(&#39;closeFeedback&#39;).focus();" id="btnFeedbackSkip"></a> 
+ </div>
+ </div>
+ </form>
+ </div>
+ </div>
+</div>
+
+<!-- Rating control related -->
+
+
+<!-- C1 -->
+
+<noscript><p><img src="//www.inps.it/stat3/piwik.php?idsite=2&rec=1" style="border:0;" alt="" /></p></noscript>
+<!-- End C1 -->
+
+<!--UPDATE TEMPALE 2020-07-28-->
+<!--getfooter CACHE-->
+
+
+
+
+<!--A_: 0
+B_: 0
+ WPMI ver. utente = 0
+B3: 0
+C_: 0,0781385
+D_: 0,0937648
+D1: 0,0937648
+D2: 0,0937648
+E_: 0,0937648
+F_: 0,0937648
+F1: 0,1250062
+0 Pif, form insfeedb vuoto,F2: 0,1406488
+G_: 0,2187652
+h_ 0,2344044
+I_: 0,2344044
+iStatoPagina: 1
+L_: 0,3125472
+ Tempo esecuzione=0,3125472 IP0INPS-FL18--><!-- versione 1.72 NPI ver. del 07-11-2019 14.00   -->
+<!-- current Version: 1.0.19324.1530, Date: 09/12/2020   --><iframe scrolling="no" frameborder="0" allowtransparency="true" src="./INPS - Home Page_files/widget_iframe.96fd96193cc66c3e11d4c5e4c7c7ec97.html" title="Twitter settings iframe" style="display: none;"></iframe><iframe id="rufous-sandbox" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" style="position: absolute; visibility: hidden; display: none; width: 0px; height: 0px; padding: 0px; border: none;" title="Twitter analytics iframe" src="./INPS - Home Page_files/saved_resource(1).html"></iframe></body></html>
