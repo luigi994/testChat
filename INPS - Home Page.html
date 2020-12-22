@@ -77,7 +77,7 @@ liveagent.showWhenOffline('5739E0000008Ppi', document.getElementById('liveagent_
 	var initESW = function(gslbBaseURL) {
 		embedded_svc.settings.displayHelpButton = true; //Or false
 		embedded_svc.settings.language = 'it'; //For example, enter 'en' or 'en-US'
-		embedded_svc.settings.defaultMinimizedText = 'Chatta con un operatore'; //(Defaults to Chat with an Expert)
+		embedded_svc.settings.defaultMinimizedText = 'Chatta con un Consulente'; //(Defaults to Chat with an Expert)
 		//embedded_svc.settings.disabledMinimizedText = '...'; //(Defaults to Agent Offline)
 
 		//embedded_svc.settings.loadingText = ''; //(Defaults to Loading)
@@ -138,6 +138,11 @@ liveagent.showWhenOffline('5739E0000008Ppi', document.getElementById('liveagent_
             {
             "label": "Fiscal Code",
             "value": "RSSGNN80A01H501N",    //@SOGEI -> Inserire Variabile contenente il CF dell'utente
+            "displayToAgent": true  
+            },
+	    {
+            "label": "Skill Routing",
+            "value": "CIG Ordinaria",    // Inserire Variabile contenente il CF dell'utente
             "displayToAgent": true  
             },
             {
@@ -285,6 +290,13 @@ liveagent.showWhenOffline('5739E0000008Ppi', document.getElementById('liveagent_
                         "doFind":false,
                         "label":"CaseOrigin"    
                     },
+			{
+                        "isExactMatch":false,
+                        "fieldName":"Skill_per_routing__c",
+                        "doCreate":true,
+                        "doFind":false,
+                        "label":"Skill routing"
+                    },                   
                     {
                         "isExactMatch":false,
                         "fieldName":"Response_Channel__c",
@@ -307,6 +319,13 @@ liveagent.showWhenOffline('5739E0000008Ppi', document.getElementById('liveagent_
                         "doFind":false,
                         "label":"TaskType"  
                     },
+			{
+                        "isExactMatch":false,
+                        "fieldName":"Skill_per_routing__c",
+                        "doCreate":true,
+                        "doFind":false,
+                        "label":"Skill routing"
+                    },
                     {
                         "isExactMatch":false,
                         "fieldName":"Subject",
@@ -327,8 +346,8 @@ liveagent.showWhenOffline('5739E0000008Ppi', document.getElementById('liveagent_
             LastName: "Rossi",                          //@SOGEI -> Inserire Variabile contenente il Cognome dell'utente
             Fiscal_Code__c: "RSSGNN80A01H501N",         //@SOGEI -> Inserire Variabile contenente il CF dell'utente
             Phone: "06326598",                         //@SOGEI -> Inserire Variabile contenente il Phone dell'utente
-            Email: "giov@nni.it"                      //@SOGEI -> Inserire Variabile contenente l email dell'utente
-           
+            Email: "giov@nni.it",                      //@SOGEI -> Inserire Variabile contenente l email dell'utente
+           Skill Routing: "CIG Straordinaria"
         };
 		/*
 		 FirstName: "Giulia",                        //@SOGEI -> Inserire Variabile contenente il Nome dell'utente
